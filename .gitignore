@@ -1,0 +1,8 @@
+**/design/
+
+# Other
+*.sketch
+*.xd
+*.fig
+
+.DS_Store
