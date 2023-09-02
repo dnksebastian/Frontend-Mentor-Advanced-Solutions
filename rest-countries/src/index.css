@@ -1,5 +1,96 @@
+/* Global, reset & typography */
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+a {
+  text-decoration: none;
+  transition: .3s;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  cursor: pointer;
+  font: inherit;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:root {
+  --custom-font-nunito:'Nunito Sans', sans-serif;
+
+  /* ## Colors */
+
+  /* ### Neutral */
+  --custom-deep-dark-blue: 200, 15%, 8%; /*(Light Mode Text)*/
+  --custom-dark-gray: 0, 0%, 52%; /*(Light Mode Input)*/
+  --custom-very-light-gray: 0, 0%, 98%; /*(Light Mode Background)*/
+
+  --custom-white: 0, 0%, 100%; /*(Dark Mode Text & Light Mode Elements)*/
+  --custom-dark-blue: 209, 23%, 22%; /*(Dark Mode Elements)*/
+  --custom-very-dark-blue: 207, 26%, 17%; /*(Dark Mode Background)*/
+
+  --cs-background: hsl(var(--custom-very-light-gray));
+  --cs-text-primary: hsl(var(--custom-deep-dark-blue));
+  --cs-elements: hsl(var(--custom-white));
+  --cs-inputs: hsl(var(--custom-dark-gray));
+}
+
+[data-theme='dark'] {
+  --cs-background: hsl(var(--custom-very-dark-blue));
+  --cs-text-primary: hsl(var(--custom-white));
+  --cs-elements: hsl(var(--custom-dark-blue));
+  --cs-inputs: hsl(var(--custom-white));
+}
+
+
+html {
+  font-family: var(--custom-font-nunito);
+  font-size: 10px;
+}
+
+body {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  min-height: 100vh; /*fallback*/
+}
+
+html,
+body {
+  /* overflow-x: hidden; */
+  min-width: 35rem;
+}
+
+/* Utility classes */
+
+.btn {
+  display: flex;
+  align-items: center;
+  padding: .7rem 0rem;
+  font-weight: 600;
+  font-size: 2.3rem;
+}
+
+
+/* root{
+  --cs-Dark-Blue: hsl(209, 23%, 22%);
+  --cs-Very-Dark-Blue: hsl(207, 26%, 17%);
+  --cs-Very-Dark-Blue: hsl(200, 15%, 8%);
+  --cs-Dark-Gray: hsl(0, 0%, 52%);
+  --cs-Very-Light-Gray: hsl(0, 0%, 98%);
+  --cs-White: hsl(0, 0%, 100%);
+} */

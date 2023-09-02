@@ -1,0 +1,15 @@
+#root {
+    display: grid;
+}
+
+.app {
+    display: grid;
+    color: var(--cs-text-primary);
+    background-color: var(--cs-background);
+}
+
+/* Mobile styles */
+
+.app {
+    grid-template-rows: 16rem minmax(16rem, 65rem) auto;
+}
