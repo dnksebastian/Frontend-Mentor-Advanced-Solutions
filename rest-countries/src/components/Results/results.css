@@ -1,0 +1,9 @@
+#countrylist-wrapper {
+    padding: 2rem;
+}
+
+.country-result-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}

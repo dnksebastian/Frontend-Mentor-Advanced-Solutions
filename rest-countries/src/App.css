@@ -11,5 +11,5 @@
 /* Mobile styles */
 
 .app {
-    grid-template-rows: 16rem minmax(16rem, 65rem) auto;
+    grid-template-rows: 16rem minmax(10rem, 20rem) auto;
 }

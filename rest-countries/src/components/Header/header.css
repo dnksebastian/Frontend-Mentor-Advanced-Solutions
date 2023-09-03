@@ -14,6 +14,7 @@ header {
 }
 
 .btn-theme {
+    transition: unset;
     gap: 2.5rem;
     color: var(--cs-text-primary);
     background-color: var(--cs-elements);

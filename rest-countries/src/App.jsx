@@ -1,20 +1,49 @@
 import './App.css'
 import useLocalStorage from 'use-local-storage';
-// import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import Header from './components/Header/Header'
 import Controls from './components/Controls/Controls';
+import Results from './components/Results/Results';
 
 function App() {
+  const [countries, setCountries] = useState([]);
+  const [countryQuery, setCountryQuery] = useState('');
+  const [matchingCountries, setMatchingCountries] = useState([]);
 
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
-  // const [countries, setCountries] = useState([]);
+  
 
   const changeTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
   };
+
+  const handleCountryQuery = (e) => {
+    const query = e.target.value
+    setCountryQuery(query)
+  }
+
+  useEffect(() => {
+    console.log(countryQuery);
+    console.log(matchingCountries);
+  }, [
+    countryQuery, matchingCountries
+  ])
+
+  const findCountries = useCallback(() => {
+    if(countryQuery) {
+      const foundCountries = countries.filter(c => c.name.toLowerCase().includes(countryQuery.toLowerCase()))
+      setMatchingCountries([...foundCountries])
+    } else {
+      setMatchingCountries([])
+    }
+  }, [countryQuery, countries]);
+
+  useEffect(() => {
+    findCountries()
+  }, [countryQuery, findCountries])
 
   
   // useEffect(() => {    
@@ -34,15 +63,24 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, []);
 
+  /* Temporary local json fetch */
+  useEffect(() => {
+    fetch('data.json')
+    .then(res => res.json())
+    .then((json) => setCountries(json))
+  }, [])
 
-  // console.log(countries);
+  const uniqueRegions = [...new Set(countries.map(country => country.region
+  ))];
+  // ..........................
+
+
 
   return (
     <div className='app' data-theme={theme}>
     <Header theme={theme} handleTheme={changeTheme}></Header>
-    <Controls></Controls>
-    
-    <p>REST Countries</p>
+    <Controls regions={uniqueRegions} handleCountryQuery={handleCountryQuery}></Controls>
+    <Results allCountries={countries} matchingCountries={matchingCountries}></Results>
     </div>
   )
 }
