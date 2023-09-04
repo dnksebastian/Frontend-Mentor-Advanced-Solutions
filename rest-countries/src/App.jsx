@@ -7,43 +7,66 @@ import Controls from './components/Controls/Controls';
 import Results from './components/Results/Results';
 
 function App() {
+  // State
   const [countries, setCountries] = useState([]);
   const [countryQuery, setCountryQuery] = useState('');
+  const [regionFilter, setRegionFilter] = useState('');
   const [matchingCountries, setMatchingCountries] = useState([]);
 
+  // Light & Dark Theme controls
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
   
-
   const changeTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
   };
 
+  // Functions & props handlers
+  
   const handleCountryQuery = (e) => {
     const query = e.target.value
     setCountryQuery(query)
   }
 
+  const handleRegionFilter = (option, {action}) => {
+    if (action === 'clear') {
+      setRegionFilter('')
+    } else if (action === 'select-option') {
+      setRegionFilter(option.value)
+    } else {
+      console.log('Something went wrong. Choose another filter');
+      setRegionFilter('')
+    }
+  };
+
   useEffect(() => {
     console.log(countryQuery);
     console.log(matchingCountries);
+    console.log(regionFilter);
   }, [
-    countryQuery, matchingCountries
+    countryQuery, matchingCountries, regionFilter
   ])
 
   const findCountries = useCallback(() => {
-    if(countryQuery) {
+
+    if(regionFilter && countryQuery) {
+      const foundCountries = countries.filter(c => c.name.toLowerCase().includes(countryQuery.toLowerCase()) && c.region.toLowerCase() === regionFilter.toLowerCase())
+      setMatchingCountries([...foundCountries])
+    } else if (regionFilter && !countryQuery) {
+      const foundCountries = countries.filter(c => c.region.toLowerCase() === regionFilter.toLowerCase())
+      setMatchingCountries([...foundCountries])      
+    } else if (countryQuery && !regionFilter) {
       const foundCountries = countries.filter(c => c.name.toLowerCase().includes(countryQuery.toLowerCase()))
       setMatchingCountries([...foundCountries])
     } else {
       setMatchingCountries([])
     }
-  }, [countryQuery, countries]);
+  }, [countryQuery, countries, regionFilter]);
 
   useEffect(() => {
     findCountries()
-  }, [countryQuery, findCountries])
+  }, [countryQuery, regionFilter, findCountries])
 
   
   // useEffect(() => {    
@@ -72,6 +95,7 @@ function App() {
 
   const uniqueRegions = [...new Set(countries.map(country => country.region
   ))];
+
   // ..........................
 
 
@@ -79,8 +103,8 @@ function App() {
   return (
     <div className='app' data-theme={theme}>
     <Header theme={theme} handleTheme={changeTheme}></Header>
-    <Controls regions={uniqueRegions} handleCountryQuery={handleCountryQuery}></Controls>
-    <Results allCountries={countries} matchingCountries={matchingCountries}></Results>
+    <Controls regions={uniqueRegions} handleCountryQuery={handleCountryQuery} handleRegionFilter={handleRegionFilter} ></Controls>
+    <Results allCountries={countries} matchingCountries={matchingCountries} countryQuery={countryQuery} regionFilter={regionFilter} ></Results>
     </div>
   )
 }

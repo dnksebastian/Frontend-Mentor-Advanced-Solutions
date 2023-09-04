@@ -1,7 +1,7 @@
 import './controls.css';
 import Select from 'react-select'
 
-const Controls = ({ regions, handleCountryQuery}) => {
+const Controls = ({ regions, handleCountryQuery,handleRegionFilter }) => {
 
     const regionsToObj = regions.map(r => {
         return {
@@ -19,7 +19,7 @@ const Controls = ({ regions, handleCountryQuery}) => {
 
             <label>
                 <p>Region filter</p>
-                <Select options={regionsToObj}/>
+                <Select options={regionsToObj} onChange={handleRegionFilter} defaultValue={''} isClearable />
             </label>
         </form>
     )
