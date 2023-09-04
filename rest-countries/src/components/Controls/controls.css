@@ -1,7 +1,74 @@
 #controls-wrap {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding: 3rem 3rem;
+    gap: 8rem;
+    padding: 5rem 3rem 1rem 3rem;
+}
+
+
+#query-label {
+position: relative;
+}
+
+#query-label::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f002";
+    position: absolute;
+    top: 50%;
+    left: 6.5rem;
+    transform: translate(0, -50%);
+    color: var(--cs-text-primary);
+    font-size: 3rem;
+    pointer-events: none;
+}
+
+.query-input {
+    font-size: 2.35rem;
+    font-weight: 600;
+    width: 100%;
+    padding: 2.8rem 2rem 2.8rem 15rem;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+}
+
+
+.query-input, .filter-input {
+    background-color: var(--cs-elements);
+    color: var(--cs-text-primary);
+}
+
+.filter-input {
+    border: none;
+    border-radius: 1rem;
+    font-size: 2.35rem;
+    font-weight: 400;
+    max-width: 40rem;
+}
+
+.react-select__control {
+    padding: 3.2rem 3.5rem 3rem 4.8rem;
+}
+
+/* .react-select__indicators {
+}
+
+.react-select__clearIndicator,
+.react-select__dropdownIndicator
+ {
+} */
+
+.react-select__menu {
+    margin-top: 1rem;
+    padding: 3.2rem 3.5rem 3rem 4.8rem;
+    background-color: var(--cs-elements);
+    border: none;
+    border-radius: 1rem;
+}
+
+.react-select__menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
 }
 

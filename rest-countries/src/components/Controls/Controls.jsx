@@ -3,7 +3,9 @@ import Select from 'react-select'
 
 const Controls = ({ regions, handleCountryQuery,handleRegionFilter }) => {
 
-    const regionsToObj = regions.map(r => {
+    const regionsToDisplay = regions.filter(r => r !== 'Polar' && r !== 'Antarctic Ocean' && r !== 'Antarctic').sort((a, b) => a.localeCompare(b))
+
+    const regionsToObj = regionsToDisplay.map(r => {
         return {
             value: r.toLowerCase(),
             label: r
@@ -12,14 +14,14 @@ const Controls = ({ regions, handleCountryQuery,handleRegionFilter }) => {
 
     return (
         <form id='controls-wrap'>
-            <label>
-            <p>Country query input</p>
-            <input type="text" placeholder='Search for a country...' onChange={handleCountryQuery}/>
+            <label id='query-label'>
+            <p className='sr-only'>Country query input</p>
+            <input className='query-input' type="text" placeholder='Search for a country...' onChange={handleCountryQuery}/>
             </label>
 
             <label>
-                <p>Region filter</p>
-                <Select options={regionsToObj} onChange={handleRegionFilter} defaultValue={''} isClearable />
+                <p className='sr-only'>Region filter</p>
+                <Select placeholder="Filter by Region" options={regionsToObj} onChange={handleRegionFilter} defaultValue={''} isClearable isSearchable={false} unstyled className='filter-input'  classNamePrefix='react-select' />
             </label>
         </form>
     )
