@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './countrytile.css'
 
 const CountryTile = ({country}) => {
@@ -8,7 +9,9 @@ const CountryTile = ({country}) => {
                 <img src={country.flag} alt={`Flag of ${country.name}`} />
             </div>
             <div className='tile-info-wrap'>
-                <h3>{country.name}</h3>
+                <Link to={`/country/${country.name}`}>
+                    <h3>{country.name}</h3>
+                </Link>
                 <p><span>Population:</span> {country.population}</p>
                 <p><span>Region:</span> {country.region}</p>
                 <p><span>Capital:</span> {country.capital}</p>

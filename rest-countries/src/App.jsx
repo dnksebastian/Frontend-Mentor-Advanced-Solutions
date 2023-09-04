@@ -1,10 +1,17 @@
+import {
+  BrowserRouter as Router,
+  Routes, Route, Navigate
+} from 'react-router-dom'
+
 import './App.css'
+import countriesServices from './services/countriesServices';
+
 import useLocalStorage from 'use-local-storage';
 import { useState, useEffect, useCallback } from 'react';
 
 import Header from './components/Header/Header'
-import Controls from './components/Controls/Controls';
-import Results from './components/Results/Results';
+import Home from './pages/Home';
+import DetailsPage from './pages/Details';
 
 function App() {
   // State
@@ -88,9 +95,11 @@ function App() {
 
   /* Temporary local json fetch */
   useEffect(() => {
-    fetch('data.json')
-    .then(res => res.json())
-    .then((json) => setCountries(json))
+    const fetchData = async () => {
+      const data = await countriesServices.fetchLocalCountryData()
+      setCountries(data)
+    }
+    fetchData()
   }, [])
 
   const uniqueRegions = [...new Set(countries.map(country => country.region
@@ -101,11 +110,35 @@ function App() {
 
 
   return (
-    <div className='app' data-theme={theme}>
-    <Header theme={theme} handleTheme={changeTheme}></Header>
-    <Controls regions={uniqueRegions} handleCountryQuery={handleCountryQuery} handleRegionFilter={handleRegionFilter} ></Controls>
-    <Results allCountries={countries} matchingCountries={matchingCountries} countryQuery={countryQuery} regionFilter={regionFilter} ></Results>
-    </div>
+    <Router>
+        <div className='app' data-theme={theme}>
+        <Header theme={theme} handleTheme={changeTheme}></Header>
+
+        <Routes>
+          <Route exact path='/country/:name'
+          element={<DetailsPage
+          countries={countries}
+          />}/>
+
+          <Route exact path='/'
+          element={<Home
+          uniqueRegions={uniqueRegions}
+          regionFilter={regionFilter}
+          countryQuery={countryQuery}
+          handleCountryQuery={handleCountryQuery}
+          handleRegionFilter={handleRegionFilter}
+          countries={countries}
+          matchingCountries={matchingCountries}
+          />} />
+
+          <Route path='*' element={<Navigate to="/"/>} />
+
+        </Routes>
+
+        {/* <Controls regions={uniqueRegions} handleCountryQuery={handleCountryQuery} handleRegionFilter={handleRegionFilter} ></Controls>
+        <Results allCountries={countries} matchingCountries={matchingCountries} countryQuery={countryQuery} regionFilter={regionFilter} ></Results> */}
+        </div>
+    </Router>
   )
 }
 
