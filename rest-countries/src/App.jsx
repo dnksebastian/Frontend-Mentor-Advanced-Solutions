@@ -19,6 +19,7 @@ function App() {
   const [countryQuery, setCountryQuery] = useState('');
   const [regionFilter, setRegionFilter] = useState('');
   const [matchingCountries, setMatchingCountries] = useState([]);
+  const [visitedPages, setVisitedPages] = useState([]);
 
   // Light & Dark Theme controls
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -51,8 +52,9 @@ function App() {
     console.log(countryQuery);
     console.log(matchingCountries);
     console.log(regionFilter);
+    console.log(visitedPages)
   }, [
-    countryQuery, matchingCountries, regionFilter
+    countryQuery, matchingCountries, regionFilter, visitedPages
   ])
 
   const findCountries = useCallback(() => {
@@ -102,6 +104,19 @@ function App() {
     fetchData()
   }, [])
 
+
+  // useEffect(() => {
+  //   const germany = countries.find(c => c.name === 'Germany')
+  //   const usa = countries.find(c => c.name === 'United States of America')
+  //   const brazil = countries.find(c => c.name === 'Brazil')
+  //   const iceland = countries.find(c => c.name === 'Iceland')
+  //   const starterVisitedCountries = [germany, usa, brazil, iceland]
+  //   setVisitedPages(starterVisitedCountries);
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [countries])
+
+
+
   const uniqueRegions = [...new Set(countries.map(country => country.region
   ))];
 
@@ -118,6 +133,8 @@ function App() {
           <Route exact path='/country/:name'
           element={<DetailsPage
           countries={countries}
+          visitedPages={visitedPages}
+          setVisitedPages={setVisitedPages}
           />}/>
 
           <Route exact path='/'
@@ -129,6 +146,7 @@ function App() {
           handleRegionFilter={handleRegionFilter}
           countries={countries}
           matchingCountries={matchingCountries}
+          visitedPages={visitedPages}
           />} />
 
           <Route path='*' element={<Navigate to="/"/>} />

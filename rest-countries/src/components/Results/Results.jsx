@@ -3,11 +3,18 @@ import CountryTile from '../CountryTile/CountryTile'
 
 const Results = ({ allCountries, matchingCountries, countryQuery, regionFilter }) => {
 
+    
+    if(!allCountries) {
+        return (
+            <>Loading data...</>
+        )
+    }
+
     if(!countryQuery && !regionFilter) {
         return (
             <main id='countrylist-wrapper'>
             <ul className='country-result-list'>
-                {allCountries.map(c => <CountryTile key={c.name} country={c}/>)}
+            {allCountries.map(c => <CountryTile key={c.name} country={c}/>)}
             </ul>          
         </main>
         )

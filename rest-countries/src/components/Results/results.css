@@ -1,9 +1,11 @@
 #countrylist-wrapper {
-    padding: 2rem;
+    padding: 2rem 5rem;
 }
 
 .country-result-list {
+    padding: 1.5rem 3rem;
     display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 8rem;
+    justify-items: center;
 }

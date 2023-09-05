@@ -7,7 +7,6 @@ const DetailsPage = ({ countries }) => {
     const countryName = useParams().name
     let allCountries = countries
 
-
     if(!countries || countries.length === 0) {
         const fetchAll = async () => {
             const data = await countriesServices.fetchAllCountries()
@@ -20,6 +19,26 @@ const DetailsPage = ({ countries }) => {
     }
 
     const countryToDisplay = allCountries.find(f => f.name === countryName)
+
+    // const updateVisitedPages = () => {
+    //     const newVisitedPages = [...visitedPages]
+    //     if(!newVisitedPages.includes(countryToDisplay)) {
+    //         newVisitedPages.unshift(countryToDisplay)
+    //         newVisitedPages.pop()
+    //         console.log(newVisitedPages);
+    //         setVisitedPages(newVisitedPages)
+    //     } else {
+    //         const revisitedPageIndex = newVisitedPages.findIndex(p => p === countryToDisplay);
+    //         newVisitedPages.splice(revisitedPageIndex, 1)
+    //         newVisitedPages.unshift(countryToDisplay)
+    //         // setVisitedPages(newVisitedPages)
+    //         console.log(newVisitedPages);
+    //     }
+    // };
+
+    // updateVisitedPages()
+    // console.log(visitedPages);
+
 
     return (
         <div>
