@@ -8,7 +8,6 @@ const fetchLocalCountryData = async () => {
     const res = await fetch('/data.json');
     const localCountryData = await res.json()
 
-    console.log(localCountryData);
     return localCountryData
 }
 

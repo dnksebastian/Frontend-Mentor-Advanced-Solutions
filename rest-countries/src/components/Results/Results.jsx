@@ -1,5 +1,6 @@
 import './results.css'
 import CountryTile from '../CountryTile/CountryTile'
+import RecentlyViewed from '../RecentlyViewed/RecentlyViewed';
 
 const Results = ({ allCountries, matchingCountries, countryQuery, regionFilter }) => {
 
@@ -13,6 +14,7 @@ const Results = ({ allCountries, matchingCountries, countryQuery, regionFilter }
     if(!countryQuery && !regionFilter) {
         return (
             <main id='countrylist-wrapper'>
+            <RecentlyViewed />
             <ul className='country-result-list'>
             {allCountries.map(c => <CountryTile key={c.name} country={c}/>)}
             </ul>          

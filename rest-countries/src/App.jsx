@@ -4,10 +4,11 @@ import {
 } from 'react-router-dom'
 
 import './App.css'
-import countriesServices from './services/countriesServices';
 
 import useLocalStorage from 'use-local-storage';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useContext } from 'react';
+
+import CountriesContext from './contexts/CountriesContext';
 
 import Header from './components/Header/Header'
 import Home from './pages/Home';
@@ -15,12 +16,16 @@ import DetailsPage from './pages/Details';
 
 function App() {
   // State
-  const [countries, setCountries] = useState([]);
   const [countryQuery, setCountryQuery] = useState('');
   const [regionFilter, setRegionFilter] = useState('');
   const [matchingCountries, setMatchingCountries] = useState([]);
-  const [visitedPages, setVisitedPages] = useState([]);
 
+  // Context data
+  const context = useContext(CountriesContext)
+  const countries = context[0];
+  console.log('context', context);
+  
+  
   // Light & Dark Theme controls
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
@@ -29,6 +34,7 @@ function App() {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
   };
+
 
   // Functions & props handlers
   
@@ -48,14 +54,6 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    console.log(countryQuery);
-    console.log(matchingCountries);
-    console.log(regionFilter);
-    console.log(visitedPages)
-  }, [
-    countryQuery, matchingCountries, regionFilter, visitedPages
-  ])
 
   const findCountries = useCallback(() => {
 
@@ -95,26 +93,6 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, []);
 
-  /* Temporary local json fetch */
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await countriesServices.fetchLocalCountryData()
-      setCountries(data)
-    }
-    fetchData()
-  }, [])
-
-
-  // useEffect(() => {
-  //   const germany = countries.find(c => c.name === 'Germany')
-  //   const usa = countries.find(c => c.name === 'United States of America')
-  //   const brazil = countries.find(c => c.name === 'Brazil')
-  //   const iceland = countries.find(c => c.name === 'Iceland')
-  //   const starterVisitedCountries = [germany, usa, brazil, iceland]
-  //   setVisitedPages(starterVisitedCountries);
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [countries])
-
 
 
   const uniqueRegions = [...new Set(countries.map(country => country.region
@@ -132,9 +110,6 @@ function App() {
         <Routes>
           <Route exact path='/country/:name'
           element={<DetailsPage
-          countries={countries}
-          visitedPages={visitedPages}
-          setVisitedPages={setVisitedPages}
           />}/>
 
           <Route exact path='/'
@@ -146,15 +121,12 @@ function App() {
           handleRegionFilter={handleRegionFilter}
           countries={countries}
           matchingCountries={matchingCountries}
-          visitedPages={visitedPages}
           />} />
 
           <Route path='*' element={<Navigate to="/"/>} />
 
         </Routes>
 
-        {/* <Controls regions={uniqueRegions} handleCountryQuery={handleCountryQuery} handleRegionFilter={handleRegionFilter} ></Controls>
-        <Results allCountries={countries} matchingCountries={matchingCountries} countryQuery={countryQuery} regionFilter={regionFilter} ></Results> */}
         </div>
     </Router>
   )
