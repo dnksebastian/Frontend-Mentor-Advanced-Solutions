@@ -6,6 +6,11 @@
     padding: 2rem 5rem;
 }
 
+.ac-label {
+    align-self: flex-start;
+    font-size: 3rem;
+}
+
 .country-result-list {
     padding: 1.5rem 3rem;
     display: grid;

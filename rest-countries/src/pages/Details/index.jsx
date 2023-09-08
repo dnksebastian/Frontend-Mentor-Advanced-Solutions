@@ -23,22 +23,20 @@ const DetailsPage = () => {
         if(!newVisitedPages.includes(countryToDisplay)) {
             newVisitedPages.unshift(countryToDisplay)
             newVisitedPages.pop()
-            console.log(newVisitedPages);
+            // console.log(newVisitedPages);
             setVisited(newVisitedPages)
         } else {
             const revisitedPageIndex = newVisitedPages.findIndex(p => p === countryToDisplay);
             newVisitedPages.splice(revisitedPageIndex, 1)
             newVisitedPages.unshift(countryToDisplay)
             setVisited(newVisitedPages)
-            console.log(newVisitedPages);
+            // console.log(newVisitedPages);
         }
     };
 
     
     useEffect(() => {
         updateVisitedPages()
-        console.log(visited);
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

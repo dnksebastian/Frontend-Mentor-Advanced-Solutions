@@ -25,7 +25,20 @@
     background-color: var(--cs-text-primary);
 }
 
+.rv-label-helper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    align-self: flex-start;
+}
+
 .rv-label {
     font-size: 3rem;
-    align-self: flex-start;
+}
+
+.btn-toggle-recent {
+    font-size: 1.8rem!important;
+    padding: .2rem .4rem!important;
+    background-color: var(--cs-inputs);
+    border-radius: .2rem;
 }

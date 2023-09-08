@@ -23,7 +23,6 @@ function App() {
   // Context data
   const context = useContext(CountriesContext)
   const countries = context[0];
-  console.log('context', context);
   
   
   // Light & Dark Theme controls
