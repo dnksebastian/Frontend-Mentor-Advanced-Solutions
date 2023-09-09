@@ -1,0 +1,18 @@
+.details-wrapper {
+    padding: 2rem;
+}
+
+.country-flag-wrapper {
+    max-width: 40rem;
+}
+
+
+.btn-back {
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--cs-elements);
+    color: var(--cs-text-primary);
+    font-weight: 400;
+    min-width: 15rem;
+    border-radius: .5rem;
+}

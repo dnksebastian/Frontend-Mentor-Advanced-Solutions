@@ -8,10 +8,24 @@
     background-color: var(--cs-background);
 }
 
-/* Mobile styles */
-
 .app {
     /* grid-template-rows: 16rem minmax(10rem, 20rem) auto; */
     /* grid-template-rows: 16rem auto; */
     grid-template-rows: 16rem 35rem auto;
+}
+
+/* Small screen styles */
+
+@media screen and (max-width: 749px) {
+    .app {
+        grid-template-rows: 16rem 30rem auto;
+    }
+}
+
+/* Desktop styles */
+
+@media screen and (min-width: 1000px) {
+    .app {
+        grid-template-rows: 8rem 14rem auto;
+    }
 }

@@ -58,3 +58,52 @@
     font-weight: 600;
 }
 
+/* Small screen styles */
+
+@media screen and (max-width: 749px) {
+
+    .tile-wrapper {
+        width: auto;
+        height: auto;
+        max-width: 32rem;
+    }
+
+    .tile-flag-wrapper {
+        flex-basis: 18rem;
+    }
+
+    .tile-info-wrap {
+        padding: 2rem 2rem;
+        font-size: 1.5rem;
+    }
+
+    .tile-info-wrap h3 {
+        font-size: 2.5rem;
+    }
+
+}
+
+/* Desktop styles */
+
+@media screen and (min-width: 1000px) {
+    .tile-wrapper {
+        width: 26.5rem;
+        height: 33rem;
+        border-radius: .7rem;
+    }
+
+    .tile-flag-wrapper {
+        flex-basis: 16rem;
+    }
+
+    .tile-info-wrap {
+        padding: 2.7rem 2.2rem .5rem 2.2rem;
+        font-size: 1.4rem;
+        gap: .7rem;
+    }
+
+    .tile-info-wrap h3 {
+        margin-bottom: .5rem;
+        font-size: 1.8rem;
+    }
+}

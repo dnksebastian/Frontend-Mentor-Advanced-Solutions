@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
     padding: 2rem 5rem;
 }
 
@@ -17,4 +17,41 @@
     grid-template-columns: 1fr;
     gap: 8rem;
     justify-items: center;
+}
+
+/* Small screen styles */
+
+@media screen and (max-width: 749px) {
+    #countrylist-wrapper {
+        padding: 2rem 2rem;
+    }
+
+    .country-result-list {
+        gap: 5rem;
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Desktop styles */
+
+@media screen and (min-width: 1000px) {
+    #countrylist-wrapper {
+        padding: .5rem 6rem;
+        background-color: rgba(0, 128, 128, 0.384);
+    }
+
+    .country-result-list {
+        background-color: rgba(255, 255, 0, 0.558);
+        padding: .5rem 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5rem;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .country-result-list {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6rem;
+    }
 }

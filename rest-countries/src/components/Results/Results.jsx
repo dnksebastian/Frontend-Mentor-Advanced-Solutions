@@ -17,7 +17,7 @@ const Results = ({ allCountries, matchingCountries, countryQuery, regionFilter }
         return (
             <main id='countrylist-wrapper'>
             <RecentlyViewed />
-            <h2 className='ac-label'>All countries</h2>
+            {/* <h2 className='ac-label'>All countries</h2> */}
             <ul className='country-result-list'>
             {/* {allCountries.map(c => <CountryTile key={c.name} country={c}/>)} */}
             {firstFourCountries.map(c => <CountryTile key={c.name} country={c}/>)}

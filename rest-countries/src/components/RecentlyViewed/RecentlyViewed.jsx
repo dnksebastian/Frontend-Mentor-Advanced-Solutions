@@ -1,4 +1,5 @@
-import { useContext, useState } from 'react';
+// import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import CountriesContext from '../../contexts/CountriesContext';
 
 import CountryTile from "../CountryTile/CountryTile"
@@ -9,9 +10,9 @@ const RecentlyViewed = () => {
     const context = useContext(CountriesContext)
     const visitedPages = context[1]
 
-    const [ listVisible, setListVisible ] = useState(true);
-    const hideWhenVisible = {display: listVisible ? 'none' : ''}
-    const showWhenVisible = {display: listVisible ? '' : 'none'}
+    // const [ listVisible, setListVisible ] = useState(true);
+    // const hideWhenVisible = {display: listVisible ? 'none' : ''}
+    // const showWhenVisible = {display: listVisible ? '' : 'none'}
 
 
     if(!visitedPages || visitedPages.includes(undefined) || visitedPages.includes(null)) {
@@ -21,7 +22,7 @@ const RecentlyViewed = () => {
 
     return (
         <>
-        <div className='rv-label-helper'>
+        {/* <div className='rv-label-helper'>
         <h2 className='rv-label'>Recently viewed</h2>
         <div style={hideWhenVisible}>
         <button className='btn btn-toggle-recent' onClick={() => setListVisible(true)}><i className='fa-solid fa-plus'></i></button>
@@ -30,10 +31,16 @@ const RecentlyViewed = () => {
         <button className='btn btn-toggle-recent' onClick={() => setListVisible(false)}><i className='fa-solid fa-minus'></i></button>
         </div>
 
-        </div>
+        </div> */}
 
 
-        <div style={showWhenVisible}>
+        {/* <div style={showWhenVisible}>
+        <ul className='recent-views-list'>
+            { visitedPages.map(p => <CountryTile key={p.name} country={p} />) }
+        </ul>
+        </div> */}
+
+        <div className='recent-wrapper'>
         <ul className='recent-views-list'>
             { visitedPages.map(p => <CountryTile key={p.name} country={p} />) }
         </ul>

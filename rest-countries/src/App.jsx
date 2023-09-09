@@ -1,6 +1,5 @@
 import {
-  BrowserRouter as Router,
-  Routes, Route, Navigate
+  Routes, Route, Navigate, useNavigate
 } from 'react-router-dom'
 
 import './App.css'
@@ -93,21 +92,24 @@ function App() {
   // }, []);
 
 
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    setCountryQuery('')
+    setRegionFilter('')
+  }, [navigate])
+
 
   const uniqueRegions = [...new Set(countries.map(country => country.region
   ))];
 
-  // ..........................
-
-
 
   return (
-    <Router>
         <div className='app' data-theme={theme}>
         <Header theme={theme} handleTheme={changeTheme}></Header>
 
         <Routes>
-          <Route exact path='/country/:name'
+          <Route exact path='/country/:code'
           element={<DetailsPage
           />}/>
 
@@ -127,7 +129,6 @@ function App() {
         </Routes>
 
         </div>
-    </Router>
   )
 }
 

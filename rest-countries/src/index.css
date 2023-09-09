@@ -72,7 +72,7 @@ body {
 html,
 body {
   /* overflow-x: hidden; */
-  min-width: 35rem;
+  min-width: 32.5rem;
 }
 
 /* Utility classes */

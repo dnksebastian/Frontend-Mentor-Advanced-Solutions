@@ -19,3 +19,37 @@ header {
     color: var(--cs-text-primary);
     background-color: var(--cs-elements);
 }
+
+/* Small screen styles */
+
+@media screen and (max-width: 749px) {
+    header {
+        flex-direction: column;
+        padding: 2rem 2rem;
+    }
+
+    .logo {
+        font-size: 2.6rem;
+    }
+
+    .btn-theme {
+        font-size: 1.5rem!important;
+    }
+}
+
+/* Desktop styles */
+
+@media screen and (min-width: 1000px) {
+    header {
+        padding: 1rem 8rem;
+    }
+
+    .logo {
+        font-size: 2.3rem;
+    }
+
+    .btn-theme {
+        gap: 1.2rem;
+        font-size: 1.6rem!important;
+    }
+}
