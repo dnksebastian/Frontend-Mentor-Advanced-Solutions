@@ -37,11 +37,11 @@
 @media screen and (min-width: 1000px) {
     #countrylist-wrapper {
         padding: .5rem 6rem;
-        background-color: rgba(0, 128, 128, 0.384);
+        /* background-color: rgba(0, 128, 128, 0.384); */
     }
 
     .country-result-list {
-        background-color: rgba(255, 255, 0, 0.558);
+        /* background-color: rgba(255, 255, 0, 0.558); */
         padding: .5rem 1rem;
         grid-template-columns: repeat(2, 1fr);
         gap: 5rem;

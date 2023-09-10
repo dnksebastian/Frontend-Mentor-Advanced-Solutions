@@ -20,7 +20,6 @@ const DetailsPage = () => {
     let allCountries = countries
     const countryToDisplay = allCountries.find(f => f.alpha3Code === countryCode)
 
-
     const updateVisitedPages = () => {
         const newVisitedPages = [...visited]
         if(!newVisitedPages.includes(countryToDisplay)) {
@@ -55,7 +54,9 @@ const DetailsPage = () => {
                 <p>Please wait or try again...</p>
             </div>
         )
-    }    
+    }
+
+    const countryLanguages = countryToDisplay.languages.map(l => l.name)
 
     return (
         <div className="details-wrapper">
@@ -65,7 +66,7 @@ const DetailsPage = () => {
 
             <div className='country-info-wrapper'>
                 <div className='country-flag-wrapper'>
-                    <img src={countryToDisplay.flag || ''} alt={`Flag of ${countryToDisplay.name || ''}`} />
+                    <img className="country-detail-flag" src={countryToDisplay.flag || ''} alt={`Flag of ${countryToDisplay.name || ''}`} />
                 </div>
                 <div className='country-details-wrapper'>
                     <h1>{countryToDisplay.name || ''}</h1>
@@ -102,18 +103,23 @@ const DetailsPage = () => {
                         </div>
                         <div className="detail-helper">
                             <span className="detail-label">Languages:</span>
-                            <span className="detail-data">{
-                                countryToDisplay.languages.map(l => l.name) || ''
-                            }</span>
+                            <div className="country-langs">
+                                {/* {countryToDisplay.languages && countryToDisplay.languages.map(l => <span key={l.name}>{l.name}</span>)} */}
+                                {countryLanguages && countryLanguages.join(', ')}
+                            </div>
                         </div>
                     </div>
-                    
-                    {countryToDisplay.borders && <h2>Border Countries:</h2>}
-                    {countryToDisplay.borders && <div className='border-countries-box'>
-                        {countryToDisplay.borders.map(b => <Link to={`/country/${b}`} key={b}>{findFullCountryName(b)}</Link>)}
-                    </div>}
 
-                    
+                    {countryToDisplay.borders &&
+                    <div className="border-countries-wrap">
+                        <h2>Border Countries:</h2>
+                        <div className='border-countries-links'>
+                        {countryToDisplay.borders.map(b => <Link to={`/country/${b}`} key={b}>
+                            <span className="border-link">{findFullCountryName(b)}</span></Link>)
+                        }
+                        </div>
+                    </div>
+                    }
                 </div>
             </div>
         </div>
