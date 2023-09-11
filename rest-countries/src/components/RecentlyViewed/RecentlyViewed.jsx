@@ -1,24 +1,35 @@
 // import { useContext, useState } from 'react';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import CountriesContext from '../../contexts/CountriesContext';
 
 import CountryTile from "../CountryTile/CountryTile"
 import './recentlyviewed.css'
 
 
-const RecentlyViewed = () => {
-    const context = useContext(CountriesContext)
-    const visitedPages = context[1]
+const RecentlyViewed = ({allCountries}) => {
+    const [ visitedToDisplay, setVisitedToDisplay ] = useState([])
 
+    const context = useContext(CountriesContext);
+    const visitedPages = context[1];
+    
+    useEffect(() => {
+        const foundCountries = visitedPages.map(fc => {
+            const country = allCountries.find(c => c.alpha3Code === fc);
+            return country
+        })
+
+        setVisitedToDisplay(foundCountries)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [visitedPages, context])
+    
     // const [ listVisible, setListVisible ] = useState(true);
     // const hideWhenVisible = {display: listVisible ? 'none' : ''}
     // const showWhenVisible = {display: listVisible ? '' : 'none'}
 
 
-    if(!visitedPages || visitedPages.includes(undefined) || visitedPages.includes(null)) {
+    if(!visitedToDisplay || visitedToDisplay.includes(undefined) || visitedToDisplay.includes(null)) {
         return null
     }
-
 
     return (
         <>
@@ -42,7 +53,8 @@ const RecentlyViewed = () => {
 
         <div className='recent-wrapper'>
         <ul className='recent-views-list'>
-            { visitedPages.map(p => <CountryTile key={p.name} country={p} />) }
+            {/* { visitedPages.map(p => <CountryTile key={p.name} country={p} />) } */}
+            { visitedToDisplay.map(p => <CountryTile key={p.numericCode} country={p} />) }
         </ul>
         </div>
         </>

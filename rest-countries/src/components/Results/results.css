@@ -37,7 +37,8 @@
 @media screen and (min-width: 1000px) {
     #countrylist-wrapper {
         padding: .5rem 6rem;
-        /* background-color: rgba(0, 128, 128, 0.384); */
+        max-width: 100rem;
+        justify-self: center;
     }
 
     .country-result-list {
@@ -50,6 +51,25 @@
 }
 
 @media screen and (min-width: 1200px) {
+    
+    #countrylist-wrapper {
+        max-width: unset;
+        justify-self: unset;
+    }
+    
+    .country-result-list {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    
+    #countrylist-wrapper {
+        max-width: unset;
+        justify-self: unset;
+    }
+    
     .country-result-list {
         grid-template-columns: repeat(4, 1fr);
         gap: 6rem;

@@ -107,3 +107,18 @@
         font-size: 1.8rem;
     }
 }
+
+@media screen and (min-width: 1200px) {
+    .tile-wrapper {
+        width: 22rem;
+        height: 35rem;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .tile-wrapper {
+        width: 26.5rem;
+        height: 33rem;
+        border-radius: .7rem;
+    }
+}

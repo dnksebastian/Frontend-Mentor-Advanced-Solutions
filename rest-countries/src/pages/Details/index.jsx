@@ -13,26 +13,44 @@ const DetailsPage = () => {
 
     const context = useContext(CountriesContext)
     const countries = context[0];
-    const visited = context[1]
-    const setVisited = context[2]
+    const visited = context[1];
+    const setVisited = context[2];
 
 
     let allCountries = countries
+
     const countryToDisplay = allCountries.find(f => f.alpha3Code === countryCode)
 
+    // const updateVisitedPages = () => {
+    //     const newVisitedPages = [...visited]
+    //     if(!newVisitedPages.includes(countryToDisplay)) {
+    //         newVisitedPages.unshift(countryToDisplay)
+    //         newVisitedPages.pop()
+    //         // console.log(newVisitedPages);
+    //         setVisited(newVisitedPages)
+    //     } else {
+    //         const revisitedPageIndex = newVisitedPages.findIndex(p => p === countryToDisplay);
+    //         newVisitedPages.splice(revisitedPageIndex, 1)
+    //         newVisitedPages.unshift(countryToDisplay)
+    //         setVisited(newVisitedPages)
+    //         // console.log(newVisitedPages);
+    //     }
+    // };
+
     const updateVisitedPages = () => {
-        const newVisitedPages = [...visited]
-        if(!newVisitedPages.includes(countryToDisplay)) {
-            newVisitedPages.unshift(countryToDisplay)
+        const newVisitedPages = [...visited];
+
+        if (newVisitedPages.includes(countryCode)) {
+            const revisitedCountryIndex = newVisitedPages.findIndex(c => c === countryCode);
+            newVisitedPages.splice(revisitedCountryIndex, 1);
+            newVisitedPages.unshift(countryCode)
+            setVisited(newVisitedPages)
+        } else if (!newVisitedPages.includes(countryCode)) {
+            newVisitedPages.unshift(countryCode);
             newVisitedPages.pop()
-            // console.log(newVisitedPages);
             setVisited(newVisitedPages)
         } else {
-            const revisitedPageIndex = newVisitedPages.findIndex(p => p === countryToDisplay);
-            newVisitedPages.splice(revisitedPageIndex, 1)
-            newVisitedPages.unshift(countryToDisplay)
-            setVisited(newVisitedPages)
-            // console.log(newVisitedPages);
+            return
         }
     };
 

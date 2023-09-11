@@ -22,12 +22,12 @@ export const CountriesContextProvider = (props) => {
    // Visited pages data
 
    const setInitialPages = async () => {
-     const germany = allCountries.find(c => c.name === 'Germany')
-     const usa = allCountries.find(c => c.name === 'United States of America')
-     const brazil = allCountries.find(c => c.name === 'Brazil')
-     const iceland = allCountries.find(c => c.name === 'Iceland')
-     const starterVisitedCountries = [germany, usa, brazil, iceland]
+    //  const germany = allCountries.find(c => c.name === 'Germany')
+    //  const usa = allCountries.find(c => c.name === 'United States of America')
+    //  const brazil = allCountries.find(c => c.name === 'Brazil')
+    //  const iceland = allCountries.find(c => c.name === 'Iceland')
 
+     const starterVisitedCountries = ['DEU', 'USA', 'BRA', 'ISL']
      
      if (!visitedCountries || visitedCountries.includes(null) || visitedCountries.includes(undefined) || visitedCountries.length === 0) {
          setVisitedCountries(starterVisitedCountries);
@@ -36,8 +36,11 @@ export const CountriesContextProvider = (props) => {
  
    useEffect(() => {
      setInitialPages()
+
    // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [allCountries])
+
+
  
 
     return (
