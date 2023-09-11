@@ -11,14 +11,14 @@
 .app {
     /* grid-template-rows: 16rem minmax(10rem, 20rem) auto; */
     /* grid-template-rows: 16rem auto; */
-    grid-template-rows: 16rem 35rem auto;
+    grid-template-rows: 16rem 35rem 1fr;
 }
 
 /* Small screen styles */
 
 @media screen and (max-width: 749px) {
     .app {
-        grid-template-rows: 16rem 30rem auto;
+        grid-template-rows: 16rem 30rem 1fr;
     }
 }
 
@@ -26,6 +26,6 @@
 
 @media screen and (min-width: 1000px) {
     .app {
-        grid-template-rows: 8rem 14rem auto;
+        grid-template-rows: 8rem 14rem 1fr;
     }
 }

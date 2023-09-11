@@ -44,7 +44,7 @@ const DetailsPage = () => {
 
     const findFullCountryName = (code) => {
         const foundCountry = allCountries.find(c => c.alpha3Code === code)
-        return foundCountry.name
+        return foundCountry.name.split('(')[0] || 'Unknown'
     }
 
   
@@ -56,20 +56,21 @@ const DetailsPage = () => {
         )
     }
 
+    const nameSimplified = countryToDisplay?.name.split('(');
     const countryLanguages = countryToDisplay.languages.map(l => l.name)
 
     return (
         <div className="details-wrapper">
-            <Link to={'/'}>
+            <Link className="back-link" to={'/'}>
             <button className="btn btn-back"><i className="fa-solid fa-arrow-left-long"></i> Back</button>
             </Link>
 
             <div className='country-info-wrapper'>
                 <div className='country-flag-wrapper'>
-                    <img className="country-detail-flag" src={countryToDisplay.flag || ''} alt={`Flag of ${countryToDisplay.name || ''}`} />
+                    <img className="country-detail-flag" src={countryToDisplay.flag || ''} alt={`Flag of ${nameSimplified[0] || countryToDisplay.name || ''}`} />
                 </div>
                 <div className='country-details-wrapper'>
-                    <h1>{countryToDisplay.name || ''}</h1>
+                    <h1>{nameSimplified[0] || countryToDisplay.name || ''}</h1>
                     <div className='details-box'>
                         <div className="detail-helper">
                             <span className="detail-label">Native Name:</span>
