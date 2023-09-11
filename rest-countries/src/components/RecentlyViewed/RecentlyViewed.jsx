@@ -21,10 +21,12 @@ const RecentlyViewed = ({allCountries}) => {
         setVisitedToDisplay(foundCountries)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [visitedPages, context])
+
+
     
-    // const [ listVisible, setListVisible ] = useState(true);
-    // const hideWhenVisible = {display: listVisible ? 'none' : ''}
-    // const showWhenVisible = {display: listVisible ? '' : 'none'}
+    const [ listVisible, setListVisible ] = useState(true);
+    const hideWhenVisible = {display: listVisible ? 'none' : ''}
+    const showWhenVisible = {display: listVisible ? '' : 'none'}
 
 
     if(!visitedToDisplay || visitedToDisplay.includes(undefined) || visitedToDisplay.includes(null)) {
@@ -32,8 +34,8 @@ const RecentlyViewed = ({allCountries}) => {
     }
 
     return (
-        <>
-        {/* <div className='rv-label-helper'>
+        <div className='recent-wrapper'>
+        <div className='rv-label-helper'>
         <h2 className='rv-label'>Recently viewed</h2>
         <div style={hideWhenVisible}>
         <button className='btn btn-toggle-recent' onClick={() => setListVisible(true)}><i className='fa-solid fa-plus'></i></button>
@@ -42,22 +44,22 @@ const RecentlyViewed = ({allCountries}) => {
         <button className='btn btn-toggle-recent' onClick={() => setListVisible(false)}><i className='fa-solid fa-minus'></i></button>
         </div>
 
-        </div> */}
+        </div>
 
 
-        {/* <div style={showWhenVisible}>
-        <ul className='recent-views-list'>
-            { visitedPages.map(p => <CountryTile key={p.name} country={p} />) }
-        </ul>
-        </div> */}
+        <div style={showWhenVisible}>
+        {/* <ul className='recent-views-list'>
+            { setVisitedToDisplay.map(p => <CountryTile key={p.numericCode} country={p} />) }
+        </ul> */}
 
-        <div className='recent-wrapper'>
         <ul className='recent-views-list'>
             {/* { visitedPages.map(p => <CountryTile key={p.name} country={p} />) } */}
             { visitedToDisplay.map(p => <CountryTile key={p.numericCode} country={p} />) }
         </ul>
+
         </div>
-        </>
+
+        </div>
     )
 }
 

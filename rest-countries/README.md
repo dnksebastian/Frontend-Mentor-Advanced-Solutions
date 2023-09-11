@@ -25,7 +25,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/vite-react-rest-countries-api-yeiN3E_1fx](https://www.frontendmentor.io/solutions/vite-react-rest-countries-api-yeiN3E_1fx)
 - Live Site URL: [https://rest-countries-xfqy.onrender.com/](https://rest-countries-xfqy.onrender.com/)
 
 ## My process
@@ -38,9 +38,3 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
