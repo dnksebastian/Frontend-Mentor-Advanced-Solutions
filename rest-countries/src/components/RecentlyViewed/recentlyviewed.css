@@ -62,7 +62,7 @@
 
 @media screen and (min-width: 1000px) {
     .recent-views-list {
-        padding: .5rem 2rem .5rem 2rem;
+        padding: .5rem 1rem .5rem 1rem;
         grid-template-columns: repeat(2, 1fr);
         gap: 5rem;
         margin-bottom: 7rem;
