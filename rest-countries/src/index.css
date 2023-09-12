@@ -47,6 +47,7 @@ ol {
   --cs-text-primary: hsl(var(--custom-deep-dark-blue));
   --cs-elements: hsl(var(--custom-white));
   --cs-inputs: hsl(var(--custom-dark-gray));
+  --cs-shadow: hsl(var(--custom-dark-gray));
 }
 
 [data-theme='dark'] {
@@ -54,6 +55,7 @@ ol {
   --cs-text-primary: hsl(var(--custom-white));
   --cs-elements: hsl(var(--custom-dark-blue));
   --cs-inputs: hsl(var(--custom-white));
+  --cs-shadow: hsl(var(--custom-dark-blue));
 }
 
 

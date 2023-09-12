@@ -35,6 +35,7 @@
 .filter-input {
   background-color: var(--cs-elements);
   color: var(--cs-text-primary);
+  box-shadow: 0rem 0rem 2rem -.7rem var(--cs-shadow);
 }
 
 .filter-input {
@@ -63,6 +64,7 @@
   background-color: var(--cs-elements);
   border: none;
   border-radius: 1rem;
+  box-shadow: 0rem 0rem 2rem -.7rem var(--cs-shadow);
 }
 
 .react-select__menu-list {

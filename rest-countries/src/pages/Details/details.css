@@ -24,6 +24,7 @@
     font-weight: 400!important;
     min-width: 21rem!important;
     border-radius: .5rem;
+    box-shadow: 0rem 0rem 2rem -.7rem var(--cs-shadow);
 }
 
 
@@ -138,6 +139,7 @@
     color: var(--cs-text-primary);
     background-color: var(--cs-elements);
     transition: .3s;
+    box-shadow: 0rem 0rem 2rem -.7rem var(--cs-shadow);
 }
 
 .border-link:hover, .border-link:focus-visible {
@@ -157,7 +159,6 @@
     }
 
     .country-info-wrapper {
-        background-color: teal;
         max-width: 42.5rem;
     }
 

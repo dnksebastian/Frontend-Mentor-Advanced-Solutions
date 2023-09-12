@@ -9,7 +9,7 @@
 
 | Challange name | Live Page | Repository |
 | :------------: | :-------: | :--------: |
-| REST Countries API With Color Theme Switcher | <a href="#/" target="_blank">Live</a>  | <a href="#/" target="_blank">Repo</a>  |
+| REST Countries API With Color Theme Switcher | <a href="https://rest-countries-xfqy.onrender.com/" target="_blank">Live</a>  | <a href="https://github.com/dnksebastian/Frontend-Mentor-Advanced-Solutions/tree/main/rest-countries" target="_blank">Repo</a>  |
 | 2 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
 | 3 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
 | 4 | <a href="#" target="_blank">Live</a>  | <a href="#" target="_blank">Repo</a>  |
