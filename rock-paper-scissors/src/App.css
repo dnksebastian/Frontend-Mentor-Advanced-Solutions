@@ -1,0 +1,5 @@
+.main-wrapper {
+    display: grid;
+    grid-template-rows: 12rem 1fr 7rem;
+    background: var(--cs-radial-gradient);
+}
