@@ -1,0 +1,132 @@
+footer {
+    /* background-color: rgba(255, 255, 0, 0.422); */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.controls {
+    /* background-color: pink; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+}
+
+.game-mode-helper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 12rem;
+    /* background-color: green; */
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+}
+
+.toggle-desc {
+    /* background-color: teal; */
+    position: absolute;
+    top: -1.5rem;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 0);
+}
+
+.game-mode-toggle-switch {
+    position: relative;
+    display: block;
+    width: 7rem;
+    height: 3rem;
+}
+
+.game-mode-info {
+    position: absolute;
+    bottom: -1.5rem;
+    left: 0;
+    /* background-color: orange; */
+}
+
+.game-mode-toggle-switch input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  border: 2px solid white;
+  /* background-color: #ccc; */
+  background-color: transparent;
+  transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 2.4rem;
+    width: 2.4rem;
+    left: .5rem;
+    bottom: .1rem;
+    background-color: white;
+    transition: .3s;
+  }
+  
+  input:checked + .slider {
+    /* background-color: #2196F3; */
+    /* background-color: orange; */
+    background: var(--cs-scissors-gradient);
+  }
+  
+  input:focus + .slider {
+    /* box-shadow: 0 0 1px #2196F3; */
+    box-shadow: 0 0 1px orange;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(3.2rem);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 3.5rem;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+
+.ft-btn {
+    text-transform: uppercase;
+    font-size: 1.7em;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: .8rem;
+    min-width: 13rem;
+    padding: .7rem 2rem;
+}
+
+#attribution {
+    margin-top: auto;
+    text-align: center;
+    color: white;
+    /* background-color: green; */
+}
+
+#attribution a {
+  color: orange;
+}
+
+#attribution a:hover, 
+#attribution a:focus-visible {
+  filter: brightness(140%);
+} 

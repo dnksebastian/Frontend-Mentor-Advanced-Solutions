@@ -1,16 +1,20 @@
+import { useState } from 'react'
+import { createPortal } from 'react-dom';
 import './App.css'
 
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
+import RulesModal from './components/RulesModal/RulesModal'
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
+  const [isBasicMode, setIsBasicMode] = useState(true);
+
 
   return (
     <div className='main-wrapper'>
-    <Header></Header>
+    <Header isBasicMode={isBasicMode}></Header>
     <div>
-    Score
-    Rules
 
     You Picked
     The House Picked
@@ -21,8 +25,10 @@ function App() {
     Play Again
     </div>
 
-
-    <Footer></Footer>
+    <Footer isBasicMode={isBasicMode} setIsBasicMode={setIsBasicMode} setShowModal={setShowModal} ></Footer>
+    {showModal && createPortal(
+      <RulesModal isBasicMode={isBasicMode} onClose={() => setShowModal(false)} />, document.getElementById('root')
+    )}
     </div>
   )
 }
