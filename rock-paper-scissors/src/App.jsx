@@ -6,6 +6,10 @@ import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import RulesModal from './components/RulesModal/RulesModal'
 
+import Basic from './views/Basic/Basic'
+import Bonus from './views/Bonus/Bonus'
+
+
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [isBasicMode, setIsBasicMode] = useState(true);
@@ -14,7 +18,14 @@ function App() {
   return (
     <div className='main-wrapper'>
     <Header isBasicMode={isBasicMode}></Header>
-    <div>
+
+    {isBasicMode ?
+    <Basic />
+    :
+    <Bonus />
+    }
+
+    {/* <div>
 
     You Picked
     The House Picked
@@ -23,7 +34,7 @@ function App() {
     You Lose
 
     Play Again
-    </div>
+    </div> */}
 
     <Footer isBasicMode={isBasicMode} setIsBasicMode={setIsBasicMode} setShowModal={setShowModal} ></Footer>
     {showModal && createPortal(

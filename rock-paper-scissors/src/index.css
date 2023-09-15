@@ -53,7 +53,7 @@ ol {
 --cs-cyan: linear-gradient(180deg, hsl(189, 59%, 53%) 0%, hsl(189, 58%, 57%) 100%);
 
 /* ### Neutral */
-
+--cs-selection-shadows: hsla(0, 0%, 0%, 0.4);
 --cs-dark-text: hsl(229, 25%, 31%);
 --cs-score-text: hsl(229, 64%, 46%);
 --cs-header-outline: hsl(217, 16%, 45%);

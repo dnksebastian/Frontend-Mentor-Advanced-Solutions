@@ -3,8 +3,6 @@ import basicRules from '../../assets/images/image-rules.svg';
 import bonusRules from '../../assets/images/image-rules-bonus.svg';
 
 const RulesModal = ({ isBasicMode, onClose }) => {
-    
-    console.log(isBasicMode);
 
     return (
         <div className='rules-wrapper'>
