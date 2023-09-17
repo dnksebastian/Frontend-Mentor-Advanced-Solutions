@@ -7,7 +7,7 @@ import LizardIcon from '../../assets/images/icon-lizard.svg';
 import SpockIcon from '../../assets/images/icon-spock.svg';
 
 
-const Selection = ({ option, type }) => {
+const Selection = ({ option, type, handleClick }) => {
 
     const displayOption = () => {
         switch(option) {
@@ -27,7 +27,7 @@ const Selection = ({ option, type }) => {
     };
 
     return (
-        <div className={`selection-wrapper selection-${option} selection-${type}`}>
+        <div className={`selection-wrapper selection-${option} selection-${type}`} onClick={handleClick}>
             <div className="selection-inner">
                     <div className="selection-icon-wrapper">
                         {displayOption()}

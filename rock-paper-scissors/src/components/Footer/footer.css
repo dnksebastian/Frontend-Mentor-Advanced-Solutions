@@ -9,7 +9,8 @@ footer {
     /* background-color: pink; */
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: space-evenly;
     padding: 1.5rem 2rem;
 }
 

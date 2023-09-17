@@ -6,39 +6,63 @@ import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import RulesModal from './components/RulesModal/RulesModal'
 
-import Basic from './views/Basic/Basic'
-import Bonus from './views/Bonus/Bonus'
-
+import Results from './views/Results/Results'
+import NewGame from './views/NewGame/NewGame';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [isBasicMode, setIsBasicMode] = useState(true);
+  const [gameScore, setGameScore] = useState(0);
+  const [gameIsOn, setGameIsOn] = useState(false);
+  const [playerSelection, setPlayerSelection] = useState('');
+  const [computerSelection, setComputerSelection] = useState('');
+  const [resultsStep, setResultsStep] = useState(0);
+
+
+  const resetToNewGame = () => {
+    setGameIsOn(false)
+    setPlayerSelection('')
+    setComputerSelection('')
+    setResultsStep(0);
+  }
 
 
   return (
     <div className='main-wrapper'>
-    <Header isBasicMode={isBasicMode}></Header>
+    <Header
+    isBasicMode={isBasicMode}
+    gameScore={gameScore} />
 
-    {isBasicMode ?
-    <Basic />
+    {!gameIsOn ?
+    <NewGame
+    isBasicMode={isBasicMode}
+    setGameScore={setGameScore}
+    gameIsOn={gameIsOn}
+    setGameIsOn={setGameIsOn}
+    playerSelection={playerSelection} setPlayerSelection={setPlayerSelection}computerSelection={computerSelection} setComputerSelection={setComputerSelection}resetToNewGame={resetToNewGame} />
     :
-    <Bonus />
+    <Results
+    playerSelection={playerSelection}
+    computerSelection={computerSelection}
+    isBasicMode={isBasicMode}
+    setGameScore={setGameScore}
+    resetToNewGame={resetToNewGame}
+    resultsStep={resultsStep}
+    setResultsStep={setResultsStep}
+    />
     }
 
-    {/* <div>
+    <Footer
+    isBasicMode={isBasicMode}
+    setIsBasicMode={setIsBasicMode}
+    setShowModal={setShowModal}
+    gameIsOn={gameIsOn}
+     />
 
-    You Picked
-    The House Picked
-
-    You Win
-    You Lose
-
-    Play Again
-    </div> */}
-
-    <Footer isBasicMode={isBasicMode} setIsBasicMode={setIsBasicMode} setShowModal={setShowModal} ></Footer>
     {showModal && createPortal(
-      <RulesModal isBasicMode={isBasicMode} onClose={() => setShowModal(false)} />, document.getElementById('root')
+      <RulesModal
+      isBasicMode={isBasicMode}
+      onClose={() => setShowModal(false)} />, document.getElementById('root')
     )}
     </div>
   )

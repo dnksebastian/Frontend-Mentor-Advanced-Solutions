@@ -2,7 +2,7 @@ import './header.css'
 import Logo from '../../assets/images/logo.svg';
 import BonusLogo from '../../assets/images/logo-bonus.svg';
 
-const Header = ({ isBasicMode }) => {
+const Header = ({ isBasicMode, gameScore }) => {
 
     return (
         <header>
@@ -16,7 +16,7 @@ const Header = ({ isBasicMode }) => {
                 </div>
                 <div className="header-score-wrap">
                     <span className="score-label">Score</span>
-                    <span className='score-value'>12</span>
+                    <span className='score-value'>{gameScore || 0}</span>
                 </div>
             </div>
         </header>

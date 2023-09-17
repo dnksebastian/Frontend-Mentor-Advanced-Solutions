@@ -1,18 +1,23 @@
 import './basic.css';
-// import TriangleBG from '../../assets/images/bg-triangle.svg';
-import Selection from '../../components/Selection/Selection'
+import * as GameFunctions from '../../utils/gameFunctions';
 
-const Basic = () => {
+import Selection from '../../components/Selection/Selection';
+
+const Basic = ({ setGameIsOn, setPlayerSelection, setComputerSelection }) => {
+    
+    const handleSelectionClick = (option) => {
+        const computerOption = GameFunctions.pickRandomBasicOption()
+        setComputerSelection(computerOption)
+        setPlayerSelection(option);
+        setGameIsOn(true);
+    };
 
     return (
         <main className='basic-view-wrapper'>
             <div className="game-selections-wrapper">
-                <Selection type='basic' option='paper' />
-                <Selection type='basic' option='scissors' />
-                <Selection type='basic' option='rock' />
-                {/* <div className="bg-wrapper">
-                    <img src={TriangleBG} alt="Triangle shape" />
-                </div> */}
+                <Selection type='basic' option='paper' handleClick={() => handleSelectionClick('paper')} />
+                <Selection type='basic' option='scissors' handleClick={() => handleSelectionClick('scissors')} />
+                <Selection type='basic' option='rock' handleClick={() => handleSelectionClick('rock')} />
             </div>
         </main>
     );
