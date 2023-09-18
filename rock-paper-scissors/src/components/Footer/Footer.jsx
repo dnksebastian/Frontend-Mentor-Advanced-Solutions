@@ -1,6 +1,6 @@
 import './footer.css'
 
-const Footer = ({ setShowModal, isBasicMode, setIsBasicMode, gameIsOn }) => {
+const Footer = ({ setShowModal, isBasicMode, setIsBasicMode, gameIsOn, clearScore }) => {
 
     const handleGameModeChange = () => {
         setIsBasicMode(!isBasicMode)
@@ -8,6 +8,9 @@ const Footer = ({ setShowModal, isBasicMode, setIsBasicMode, gameIsOn }) => {
 
     return (
         <footer>
+            {!gameIsOn && <div className="clear-box">
+                <button className='btn-clear' onClick={clearScore}>Clear score</button>
+            </div>}
             <div className='controls'>
                 {!gameIsOn && <div className='game-mode-helper'>
                 <span className='toggle-desc'>Choose game mode:</span>

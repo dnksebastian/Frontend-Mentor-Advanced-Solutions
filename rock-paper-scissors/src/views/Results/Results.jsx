@@ -2,122 +2,77 @@ import './results.css'
 import * as GameFunctions from '../../utils/gameFunctions';
 
 import Selection from '../../components/Selection/Selection';
+import { useEffect, useRef, useState } from 'react';
 
-const Results = ({ playerSelection, computerSelection, isBasicMode, resetToNewGame, resultsStep, setResultsStep }) => {
-    
-    const checkScore = () => {
+const Results = ({ playerSelection, computerSelection, isBasicMode, resetToNewGame, setGameScore }) => {
+
+    const [showComputerOption, setShowComputerOption] = useState(false);
+    const [showFinalResult, setShowFinalResult] = useState(false);
+
+    setTimeout(() => {
+        setShowComputerOption(true);
+    }, 2000);
+
+    setTimeout(() => {
+        setShowFinalResult(true);
+    }, 3500);
+
+    let resultToDisplay = useRef();
+
+    useEffect(() => {
+        const checkScore = () => {
         
-        let newResult
+            let newResult
+            
+            if (isBasicMode) {
+                newResult = GameFunctions.calculateResult(playerSelection, computerSelection, 'basic');
         
-        if (isBasicMode) {
-            newResult = GameFunctions.calculateResult(playerSelection, computerSelection, 'basic');
+            } else if (!isBasicMode) {
+                newResult = GameFunctions.calculateResult(playerSelection, computerSelection, 'bonus');
+            }
     
-        } else if (!isBasicMode) {
-            newResult = GameFunctions.calculateResult(playerSelection, computerSelection, 'bonus');
-        }
-
-        if (newResult === playerSelection) {
-            return 'You win';
-        } else if (newResult === computerSelection) {
-            return 'You lose'
-        } else if (newResult === 'tie') {
-            return 'Tie'
-        }
-
-    };
-
-    if (resultsStep === 0) {
-
-        setTimeout(() => {
-            setResultsStep(1)
-        }, 3000)
-
-        
-        return (
-            <div className='results-wrapper results-step1'>
-                <div className="results-helper">
-                <div className="selection-slot">
-                    <div className="selection-placeholder">
-                        <Selection type='result' option={playerSelection} />
-                    </div>
-                    <p className="selection-label">You Picked</p>
-                </div>
-                <div className="selection-slot">
-                    <div className="selection-placeholder"></div>
-                    <p className="selection-label">The House Picked</p>
-                </div>
-                </div>
-        </div>
-        );
-    }
+            if (newResult === playerSelection) {
+                setTimeout(() => {
+                    setGameScore((prev) => prev + 1)
+                }, 2000)
+                return 'You win';
+            } else if (newResult === computerSelection) {
+                setTimeout(() => {
+                    setGameScore((prev) => prev - 1)
+                }, 2000)
+                return 'You lose'
+            } else if (newResult === 'tie') {
+                return 'Tie'
+            }
     
-    if (resultsStep === 1) {
+        };
 
-        setTimeout(() => {
-            setResultsStep(2)
-        }, 3000)
+        resultToDisplay.current = checkScore();
 
-        return (
-            <div className='results-wrapper results-step2'>
-                <div className="results-helper">
-                <div className="selection-slot">
-                    <div className="selection-placeholder">
-                        <Selection type='result' option={playerSelection} />
-                    </div>
-                    <p className="selection-label">You Picked</p>
-                </div>
-                <div className="selection-slot">
-                    <div className="selection-placeholder">
-                    <Selection type='result' option={computerSelection} />
-                    </div>
-                    <p className="selection-label">The House Picked</p>
-                </div>
-                </div>
-        </div>
-        );
-    }
-    
-    if (resultsStep === 2) {
-        const resultToDisplay = checkScore();
-
-        return (
-            <div className='results-wrapper results-step3'>
-                <div className="results-helper">
-                <div className="selection-slot">
-                    <div className="selection-placeholder">
-                        <Selection type='result' option={playerSelection} />
-                    </div>
-                    <p className="selection-label">You Picked</p>
-                </div>
-                <div className="selection-slot">
-                    <div className="selection-placeholder">
-                    <Selection type='result' option={computerSelection} />
-                    </div>
-                    <p className="selection-label">The House Picked</p>
-                </div>
-                </div>
-                <div className='play-again-box'>
-                    <p className="result-info">{resultToDisplay}</p>
-                    <button className='result-btn' onClick={resetToNewGame}>Play again</button>
-                </div>
-        </div>
-        );
-    }
-
+    }, [computerSelection, playerSelection, isBasicMode, setGameScore])
 
     return (
-        <div className='results-wrapper'>
+        <div className='results-wrapper results-step3'>
             <div className="results-helper">
             <div className="selection-slot">
                 <div className="selection-placeholder">
+                    <Selection type='result' option={playerSelection} />
                 </div>
                 <p className="selection-label">You Picked</p>
             </div>
             <div className="selection-slot">
-                <div className="selection-placeholder"></div>
+                <div className="selection-placeholder">
+                    {showComputerOption && <Selection type='result' option={computerSelection} />}
+                </div>
                 <p className="selection-label">The House Picked</p>
             </div>
             </div>
+            {showFinalResult &&
+            <div className='play-again-box'>
+                <p className="result-info">{resultToDisplay.current}</p>
+                <button className='result-btn' onClick={resetToNewGame}>Play again</button>
+            </div>
+            }
     </div>
     );
 

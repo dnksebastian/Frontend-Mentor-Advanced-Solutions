@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import useLocalStorage from "use-local-storage";
 import { createPortal } from 'react-dom';
 import './App.css'
 
@@ -16,15 +17,36 @@ function App() {
   const [gameIsOn, setGameIsOn] = useState(false);
   const [playerSelection, setPlayerSelection] = useState('');
   const [computerSelection, setComputerSelection] = useState('');
-  const [resultsStep, setResultsStep] = useState(0);
+  const [savedScore, setSavedScore] = useLocalStorage('gamescore', 0);
+
+  console.log('rendered');
 
 
   const resetToNewGame = () => {
     setGameIsOn(false)
     setPlayerSelection('')
     setComputerSelection('')
-    setResultsStep(0);
   }
+
+  const clearScore = () => {
+    setGameScore(0)
+    setSavedScore(0)
+  };
+
+
+  useEffect(() => {
+    if(savedScore) {
+      setGameScore(savedScore)
+    }
+  }, [savedScore])
+
+
+  useEffect(() => {
+    setSavedScore(gameScore)
+
+  }, [gameScore, savedScore, setSavedScore]);
+
+
 
 
   return (
@@ -36,10 +58,10 @@ function App() {
     {!gameIsOn ?
     <NewGame
     isBasicMode={isBasicMode}
-    setGameScore={setGameScore}
-    gameIsOn={gameIsOn}
     setGameIsOn={setGameIsOn}
-    playerSelection={playerSelection} setPlayerSelection={setPlayerSelection}computerSelection={computerSelection} setComputerSelection={setComputerSelection}resetToNewGame={resetToNewGame} />
+    setPlayerSelection={setPlayerSelection}
+    setComputerSelection={setComputerSelection}
+    />
     :
     <Results
     playerSelection={playerSelection}
@@ -47,8 +69,6 @@ function App() {
     isBasicMode={isBasicMode}
     setGameScore={setGameScore}
     resetToNewGame={resetToNewGame}
-    resultsStep={resultsStep}
-    setResultsStep={setResultsStep}
     />
     }
 
@@ -57,7 +77,8 @@ function App() {
     setIsBasicMode={setIsBasicMode}
     setShowModal={setShowModal}
     gameIsOn={gameIsOn}
-     />
+    clearScore={clearScore}
+    />
 
     {showModal && createPortal(
       <RulesModal
