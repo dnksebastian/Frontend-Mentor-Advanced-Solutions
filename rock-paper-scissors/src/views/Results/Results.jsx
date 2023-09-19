@@ -8,6 +8,8 @@ const Results = ({ playerSelection, computerSelection, isBasicMode, resetToNewGa
 
     const [showComputerOption, setShowComputerOption] = useState(false);
     const [showFinalResult, setShowFinalResult] = useState(false);
+    const [playerWon, setPlayerWon] = useState(false);
+    const [computerWon, setComputerWon] = useState(false);
 
     setTimeout(() => {
         setShowComputerOption(true);
@@ -34,11 +36,13 @@ const Results = ({ playerSelection, computerSelection, isBasicMode, resetToNewGa
             if (newResult === playerSelection) {
                 setTimeout(() => {
                     setGameScore((prev) => prev + 1)
+                    setPlayerWon(true);
                 }, 2000)
                 return 'You win';
             } else if (newResult === computerSelection) {
                 setTimeout(() => {
                     setGameScore((prev) => prev - 1)
+                    setComputerWon(true)
                 }, 2000)
                 return 'You lose'
             } else if (newResult === 'tie') {
@@ -56,13 +60,13 @@ const Results = ({ playerSelection, computerSelection, isBasicMode, resetToNewGa
             <div className="results-helper">
             <div className="selection-slot">
                 <div className="selection-placeholder">
-                    <Selection type='result' option={playerSelection} />
+                    <Selection type='result' option={playerSelection} winner={playerWon ? 'winner' : ''} />
                 </div>
                 <p className="selection-label">You Picked</p>
             </div>
             <div className="selection-slot">
                 <div className="selection-placeholder">
-                    {showComputerOption && <Selection type='result' option={computerSelection} />}
+                    {showComputerOption && <Selection type='result' option={computerSelection} winner={computerWon ? 'winner': ''}/>}
                 </div>
                 <p className="selection-label">The House Picked</p>
             </div>

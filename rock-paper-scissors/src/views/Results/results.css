@@ -41,6 +41,7 @@
     font-weight: 600;
     letter-spacing: .15rem;
     color: white;
+    z-index: 20;
 }
 
 .play-again-box {
@@ -71,5 +72,9 @@
     border-radius: .7rem;
     background-color: white;
     color: var(--cs-dark-text);
+}
+
+.result-btn:hover, .result-btn:focus-visible {
+    color: hsl(349, 71%, 52%);
 }
 

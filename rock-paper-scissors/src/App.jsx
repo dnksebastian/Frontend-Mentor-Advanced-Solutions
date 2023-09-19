@@ -38,13 +38,13 @@ function App() {
     if(savedScore) {
       setGameScore(savedScore)
     }
-  }, [savedScore])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
 
   useEffect(() => {
     setSavedScore(gameScore)
-
-  }, [gameScore, savedScore, setSavedScore]);
+  }, [gameScore, setSavedScore]);
 
 
 
