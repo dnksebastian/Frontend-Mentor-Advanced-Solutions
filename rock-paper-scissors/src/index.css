@@ -87,6 +87,12 @@ body {
   min-height: 63.5rem;
 }
 
+@media screen and (min-width: 1300px) and (max-width: 1400px) {
+  #root {
+    min-height: 768px;
+  }
+}
+
 /* Utility classes */
 
 .sr-only {
