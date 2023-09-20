@@ -40,8 +40,9 @@ Users should be able to:
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [https://stackoverflow.com/a/17977555](https://stackoverflow.com/a/17977555) - clean Rock - Paper - Scissors logic.
+- [https://stackoverflow.com/a/65525282](https://stackoverflow.com/a/65525282) - CSS Radial gradients with sharp steps.
+- [https://stackoverflow.com/a/51432213](https://stackoverflow.com/a/51432213) - positioning pseudoelement.
 
 ### Used materials
 

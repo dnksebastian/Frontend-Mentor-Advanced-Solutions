@@ -90,6 +90,18 @@
     transform: scale(160%) translateZ(-1px);
     border-radius: 50%;
     z-index: -10;
+    animation-name: expand;
+    animation-duration: .8s;
+}
+
+@keyframes expand {
+    from {
+        transform: scale(100%) translateZ(-1px);
+    }
+
+    to {
+        transform: scale(160%) translateZ(-1px);
+    }
 }
 
 /* Basic option styles */

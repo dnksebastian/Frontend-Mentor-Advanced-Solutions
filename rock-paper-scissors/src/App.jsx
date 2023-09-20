@@ -19,8 +19,6 @@ function App() {
   const [computerSelection, setComputerSelection] = useState('');
   const [savedScore, setSavedScore] = useLocalStorage('gamescore', 0);
 
-  console.log('rendered');
-
 
   const resetToNewGame = () => {
     setGameIsOn(false)
