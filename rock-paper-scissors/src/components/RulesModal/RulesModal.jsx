@@ -5,6 +5,7 @@ import bonusRules from '../../assets/images/image-rules-bonus.svg';
 const RulesModal = ({ isBasicMode, onClose }) => {
 
     return (
+        <>
         <div className='rules-wrapper'>
             <h1>Rules</h1>
             <div className="rules-img-wrap">
@@ -16,6 +17,8 @@ const RulesModal = ({ isBasicMode, onClose }) => {
             </div>
             <button className='btn-modal' onClick={onClose}>Close rules modal</button>
         </div>
+        <div className="backdrop" onClick={onClose}></div>
+    </>
     );
 };
 

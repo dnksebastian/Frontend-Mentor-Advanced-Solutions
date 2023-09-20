@@ -84,6 +84,7 @@ body {
 #root {
   display: grid;
   position: relative;
+  min-height: 63.5rem;
 }
 
 /* Utility classes */

@@ -70,13 +70,14 @@ const Results = ({ playerSelection, computerSelection, isBasicMode, resetToNewGa
                 </div>
                 <p className="selection-label">The House Picked</p>
             </div>
-            </div>
+
             {showFinalResult &&
             <div className='play-again-box'>
                 <p className="result-info">{resultToDisplay.current}</p>
                 <button className='result-btn' onClick={resetToNewGame}>Play again</button>
             </div>
             }
+            </div>
     </div>
     );
 

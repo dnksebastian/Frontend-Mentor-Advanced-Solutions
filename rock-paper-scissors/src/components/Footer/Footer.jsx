@@ -8,10 +8,10 @@ const Footer = ({ setShowModal, isBasicMode, setIsBasicMode, gameIsOn, clearScor
 
     return (
         <footer>
+            <div className='controls'>
             {!gameIsOn && <div className="clear-box">
                 <button className='btn-clear' onClick={clearScore}>Clear score</button>
             </div>}
-            <div className='controls'>
                 {!gameIsOn && <div className='game-mode-helper'>
                 <span className='toggle-desc'>Choose game mode:</span>
                 <label className='game-mode-toggle-switch'>
