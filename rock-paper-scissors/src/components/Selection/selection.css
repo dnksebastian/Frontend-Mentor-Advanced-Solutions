@@ -271,19 +271,3 @@
 
 }
 
-
-@media screen and (min-width: 1300px) and (max-width: 1400px) {
-    /* .selection-wrapper {
-        min-height: 15rem;
-        min-width: 15rem;
-    } */
-
-    .selection-paper.selection-basic {
-        transform: translate(-1.5rem, -2rem);
-    }
-    
-    .selection-scissors.selection-basic {
-        transform: translate(1.5rem, -2rem);
-    }
-    
-  }

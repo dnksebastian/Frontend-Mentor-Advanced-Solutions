@@ -173,9 +173,3 @@ footer {
   }
   
 }
-
-@media screen and (min-width: 1300px) {
-  footer {
-    bottom: 9rem;
-  }
-}

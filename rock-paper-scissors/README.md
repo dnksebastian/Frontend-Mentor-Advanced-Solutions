@@ -24,7 +24,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/vite-react-rock-paper-scissors-game-4I-hK4DSni](https://www.frontendmentor.io/solutions/vite-react-rock-paper-scissors-game-4I-hK4DSni)
 - Live Site URL: [https://rock-paper-scissors-ri7a.onrender.com/](https://rock-paper-scissors-ri7a.onrender.com/)
 
 ## My process
