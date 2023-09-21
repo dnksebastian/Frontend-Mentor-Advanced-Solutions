@@ -10,7 +10,8 @@
 
     .main-wrapper {
         /* grid-template-rows: max(20%, 21rem) 1fr max(9.5%, 7.5rem); */
-        grid-template-rows: max(20%, 21rem) auto max(9.5%, 7.5rem);
+        /* grid-template-rows: max(20%, 21rem) auto max(9.5%, 7.5rem); */
+        grid-template-rows: max(20%, 21rem) auto;
     }
 
     @media screen and (max-height: 765px) {
