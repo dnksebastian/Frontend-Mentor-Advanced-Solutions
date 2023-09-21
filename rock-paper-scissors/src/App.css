@@ -11,13 +11,18 @@
     .main-wrapper {
         /* grid-template-rows: max(20%, 21rem) 1fr max(9.5%, 7.5rem); */
         /* grid-template-rows: max(20%, 21rem) auto max(9.5%, 7.5rem); */
-        grid-template-rows: max(20%, 21rem) auto;
-        margin-bottom: 5rem;
+        grid-template-rows: max(20%, 21rem) auto 8rem;
     }
 
     @media screen and (max-height: 765px) {
         .main-wrapper {
             grid-template-rows: max(15%, 17rem) auto max(10.5%, 8.5rem);
         }
+    }
+}
+
+@media screen and (min-width: 1300px) and (max-width: 1400px) {
+    .main-wrapper {
+        margin-bottom: 9rem;
     }
 }
