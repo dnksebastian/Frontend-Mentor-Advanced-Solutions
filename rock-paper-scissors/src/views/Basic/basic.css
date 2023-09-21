@@ -45,5 +45,6 @@
 @media screen and (min-width: 1300px) and (max-width: 1400px) {
     .game-selections-wrapper {
         min-height: 35rem;
+        margin-top: 3rem;
     }
   }

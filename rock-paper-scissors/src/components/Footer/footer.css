@@ -173,3 +173,9 @@ footer {
   }
   
 }
+
+@media screen and (min-width: 1300px) and (max-width: 1400px) {
+  footer {
+    bottom: 5rem;
+  }
+}
