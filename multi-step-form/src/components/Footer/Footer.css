@@ -1,0 +1,15 @@
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--cs-marine-blue));
+}
+
+footer a {
+    font-weight: 700;
+    color: hsl(var(--cs-strawberry-red));
+}
+
+footer a:hover, footer a:focus-visible {
+    filter: brightness(200%);
+}

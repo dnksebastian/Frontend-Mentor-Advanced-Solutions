@@ -1,0 +1,38 @@
+.form-main-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 8.5rem 8.5rem 1fr 5rem;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 128, 128, 0.277);
+}
+
+.step-display-wrapper {
+    border: 1px solid red;
+    margin-bottom: 2rem;
+    background-color: hsl(var(--cs-white));
+    width: 92%;
+    min-height: 74%;
+    border-radius: 1rem;
+    padding: 2rem;
+    justify-self: center;
+    align-self: flex-start;
+    grid-row: 2/4;
+    grid-column: 1/2;
+    transform: translate(0, 1.5rem);
+}
+
+
+@media screen and (min-width: 1000px) {
+    .form-main-wrapper {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 3fr 1fr;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 2rem;
+    transform: translate(0rem, 1.5rem);
+    max-width: 94rem;
+    max-height: 60rem;
+    place-self: center;
+    }
+}

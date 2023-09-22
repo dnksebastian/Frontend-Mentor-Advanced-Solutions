@@ -1,0 +1,6 @@
+#root {
+    display: grid;
+    position: relative;
+    grid-template-rows: 1fr 2rem;
+    background-color: hsl(var(--cs-magnolia));
+  }

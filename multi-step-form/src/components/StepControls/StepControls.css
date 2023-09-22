@@ -1,0 +1,8 @@
+.step-controls-wrapper {
+    padding: 2rem 1rem;
+    grid-row: 4/5;
+    grid-column: 1/2;
+    justify-self: flex-end;
+    width: 100%;
+    background-color: hsl(var(--cs-white));
+}

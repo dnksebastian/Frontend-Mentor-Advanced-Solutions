@@ -1,0 +1,88 @@
+/* Reset, typography & custom properties */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  transition: .3s;
+}
+
+button,
+input {
+  font: inherit;
+  transition: 0.3s;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:root {
+  --main-font: font-family: 'Ubuntu', sans-serif;
+
+/* ## Colors */
+
+/* ### Primary */
+
+--cs-marine-blue: 213, 96%, 18%;
+--cs-purplish-blue: 243, 100%, 62%;
+--cs-pastel-blue: 228, 100%, 84%;
+--cs-light-blue: 206, 94%, 87%;
+--cs-strawberry-red: 354, 84%, 57%;
+
+/* ### Neutral */
+
+--cs-cool-gray: 231, 11%, 63%;
+--cs-light-gray: 229, 24%, 87%;
+--cs-magnolia: 217, 100%, 97%;
+--cs-alabaster: 231, 100%, 99%;
+--cs-white: 0, 0%, 100%;
+}
+
+
+html {
+  font-family: var(--main-font);
+  font-size: 10px;
+}
+
+body {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  min-height: 100vh; /*fallback*/
+}
+
+html,
+body {
+  min-width: 25rem;
+}
+
+/* Utility classes */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
