@@ -34,7 +34,7 @@ ol {
 }
 
 :root {
-  --main-font: font-family: 'Ubuntu', sans-serif;
+  --main-font: 'Ubuntu', sans-serif;
 
 /* ## Colors */
 
