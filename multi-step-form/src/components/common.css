@@ -1,0 +1,43 @@
+.step-helper-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.step-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.step-desc h1 {
+    font-size: 2.4rem;
+}
+
+.step-desc p {
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+.inputs-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-helper {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.input-helper label {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.input-helper input[type='text'] {
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: .8rem 1.5rem;
+}

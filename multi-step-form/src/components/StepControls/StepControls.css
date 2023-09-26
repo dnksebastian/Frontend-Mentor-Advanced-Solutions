@@ -2,9 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem 1.5rem;
-    grid-row: 4/5;
-    grid-column: 1/2;
+    padding: 1rem 1.5rem 0rem 1.5rem;
+    /* grid-row: 4/5; */
+    /* grid-column: 1/2; */
     /* justify-self: flex-end; */
     width: 100%;
     background-color: hsl(var(--cs-white));
@@ -29,6 +29,6 @@
     color: hsl(var(--cs-cool-gray));
 }
 
-#btn-next {
+.btn-next {
     margin-left: auto;
 }

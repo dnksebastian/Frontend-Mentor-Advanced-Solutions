@@ -1,10 +1,10 @@
-import { useFormik } from 'formik';
-import { useState } from 'react';
-
 import './FormContainer.css'
 
+import { useState } from 'react';
+
+import { FormContextProvider } from '../../contexts/FormContext';
+
 import Sidebar from '../Sidebar/Sidebar';
-import StepControls from '../StepControls/StepControls'
 import InfoStep from '../InfoStep/InfoStep'
 import PlansStep from '../PlansStep/PlansStep'
 import AddonsStep from '../AddonsStep/AddonsStep'
@@ -12,7 +12,6 @@ import SummaryStep from '../SummaryStep/SummaryStep'
 import SuccessStep from '../SuccessStep/SuccessStep'
 
 const FormContainer = () => {
-
     const [formStep, setFormStep] = useState(0);
 
     console.log('rendered');
@@ -21,41 +20,43 @@ const FormContainer = () => {
         setFormStep(step)
     }
 
-    const formik = useFormik({
-        initialValues: {},
-        onSubmit: values => {
-            console.log(values);
-        }
-    })
-
-
-    const displayFormStep = (step) => {
-        switch(step) {
-            case 0:
-                return <InfoStep />;
-            case 1:
-                return <PlansStep />;
-            case 2:
-                return <AddonsStep />;
-            case 3:
-                return <SummaryStep />;
-            case 4:
-                return <SuccessStep />;
-            default:
-                return <InfoStep />;
-        }
-    };
-
     return (
-        <form onSubmit={formik.handleSubmit} className='form-main-wrapper'>
-            <Sidebar formStep={formStep} handleStepChange={handleStepChange} />
-            <div className='step-display-wrapper'>
-                {displayFormStep(formStep)}
+        <FormContextProvider>
+            <div
+            className='form-main-wrapper'>
+                <Sidebar
+                formStep={formStep}
+                handleStepChange={handleStepChange} />
+                <div className='step-display-wrapper'>
+                {formStep === 0 &&
+                <InfoStep
+                formStep={formStep}
+                handleStepChange={handleStepChange}
+                />}
+                {formStep === 1 &&
+                <PlansStep
+                formStep={formStep}
+                handleStepChange={handleStepChange}
+                />}
+                {formStep === 2 &&
+                <AddonsStep
+                formStep={formStep}
+                handleStepChange={handleStepChange}
+                />}
+                {formStep === 3 &&
+                <SummaryStep
+                formStep={formStep}
+                handleStepChange={handleStepChange}
+                />}
+                {formStep === 4 &&
+                <SuccessStep
+                formStep={formStep}
+                handleStepChange={handleStepChange}
+                />}
+                </div>
             </div>
-            <StepControls formStep={formStep} handleStepChange={handleStepChange} />
-        </form>
-    )
+        </FormContextProvider>
+            )
 };
-
 
 export default FormContainer

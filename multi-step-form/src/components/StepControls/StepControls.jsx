@@ -17,21 +17,32 @@ const StepControls = ({ formStep, handleStepChange }) => {
 
     return (
         <div className='step-controls-wrapper'>
-            {(formStep > 0 && formStep < 4) && <button
-            className='btn-stepchange btn-light'
-            id='btn-back'
-            type='button'
+            {(formStep > 0 && formStep <= 3) && <button
+            className='btn-stepchange btn-light btn-back'
+            // id='btn-back'
+            // type='button'
             onClick={() => goPreviousStep()}
             >Go Back</button>
             }
             {
-            (formStep >= 0 && formStep < 4) &&
+            (formStep >= 0 && formStep < 3) &&
             <button
-            className='btn-stepchange btn-dark'
-            id='btn-next'
-            type='button'
-            onClick={() => goNextStep()}
+            className='btn-stepchange btn-dark btn-next'
+            // id='btn-next'
+            type='submit'
+            // onClick={() => goNextStep()}
+            onClick={() => {
+                goNextStep()
+            }}
             >Next Step</button>
+            }
+            {
+                formStep === 3 && 
+                <button
+                className='btn-stepchange btn-confirm'
+                id='btn-confirm'
+                type='submit'
+                >Confirm</button>
             }
         </div>
     );
