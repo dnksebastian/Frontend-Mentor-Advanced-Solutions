@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 import useLocalStorage from "use-local-storage";
 
 const FormContext = createContext();
@@ -45,5 +45,14 @@ useEffect(() => {
     </FormContext.Provider>
   );
 };
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function useFormContext() {
+  const context = useContext(FormContext);
+  if(!context) {
+    throw new Error('useFormContext must be used within the FormContextProvider')
+  }
+  return context
+}
 
 export default FormContext;

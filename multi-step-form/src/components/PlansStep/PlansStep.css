@@ -1,0 +1,113 @@
+.plans-inputs {
+    /* background-color: teal; */
+    gap: 1.1rem;
+}
+
+.plan-radio-input {
+    display: none;
+}
+
+.plan-input-helper {
+    display: flex;
+    align-items: center;
+    background-color: orange;
+}
+
+.plan-input-helper label {
+    cursor: pointer;
+    padding: 1.8rem 1.7rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 1rem;
+    border: 1px solid black;
+    gap: 1.5rem;
+    background-color: rgba(0, 0, 255, 0.592);
+}
+
+.plan-label-helper {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-size: 1.5rem;
+}
+
+
+.plan-label-helper p:nth-of-type(1) {
+    font-weight: 700;
+}
+
+.plan-label-helper p:nth-of-type(2) {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.checkbox-helper {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    /* margin-bottom: 2.5rem; */
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    background-color: hsl(var(--cs-magnolia));
+}
+
+.billing-switch {
+    display: flex;
+    gap: 2.2rem;
+    align-items: center;
+    background-color: orange;
+}
+
+.billing-option-name {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.switch-helper {
+    position: relative;
+    width: 4rem;
+    height: 2rem;
+}
+
+.billing-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: hsl(var(--cs-marine-blue));
+    transition: .3s;
+    border-radius: 1rem;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 1.2rem;
+    width: 1.2rem;
+    left: .4rem;
+    bottom: .4rem;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* .billing-checkbox:checked + .slider {
+    background-color: yellow;
+} */
+
+.billing-checkbox:checked + .slider:before {
+    transform: translateX(1.9rem);
+  }
+
+
+
+
+

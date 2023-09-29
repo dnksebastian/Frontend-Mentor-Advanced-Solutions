@@ -1,7 +1,7 @@
 import './InfoStep.css'
 import '../common.css'
 
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import { useForm } from "react-hook-form";
 
 import FormContext from '../../contexts/FormContext';
@@ -12,6 +12,8 @@ const InfoStep = ({ formStep, handleStepChange }) => {
     const { register, handleSubmit } = useForm();
     const [ formData, dispatchFormData ] = useContext(FormContext)
 
+    const infoStepRef = useRef()
+
     const onSubmitStep = (data) => {
         console.log('step 1 submitted');
         console.log(data);
@@ -21,10 +23,11 @@ const InfoStep = ({ formStep, handleStepChange }) => {
 
     return (
         <form
-        className='personal-info-wrap'
+        className='personal-info-wrap step-form-wrap'
         onSubmit={handleSubmit(onSubmitStep)}
+        ref={infoStepRef}
         >
-            <div className='step-helper-wrap'>
+            <div className='step-helper-wrap helper-info'>
             <div className="step-desc step1-desc">
             <h1>Personal info</h1>
             <p>Please provide your name, email address, and phone number.</p>
@@ -36,6 +39,7 @@ const InfoStep = ({ formStep, handleStepChange }) => {
                     type="text"
                     id="first-name"
                     name="first-name"
+                    placeholder='e.g. Stephen King'
                     {...register('firstName')}
                     defaultValue={formData.firstName}
                     />
@@ -45,6 +49,8 @@ const InfoStep = ({ formStep, handleStepChange }) => {
                     <input
                     type="text"
                     id='email'
+                    name='email'
+                    placeholder='e.g. stephenking@lorem.com'
                     {...register('email')}
                     defaultValue={formData.email}
                     />
@@ -54,6 +60,8 @@ const InfoStep = ({ formStep, handleStepChange }) => {
                     <input
                     type="text"
                     id='phone'
+                    name='phone'
+                    placeholder='e.g. +1 234 567 890'
                     {...register('phone')}
                     defaultValue={formData.phone}
                     />
@@ -65,6 +73,7 @@ const InfoStep = ({ formStep, handleStepChange }) => {
             formStep={formStep}
             handleStepChange={handleStepChange}
             submitStep={handleSubmit}
+            stepRef={infoStepRef}
             />
             {/* <button>submit</button> */}
         </form>

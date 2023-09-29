@@ -1,0 +1,77 @@
+.addons-inputs {
+    background-color: rgba(0, 128, 128, 0.4);
+    gap: 1.1rem;
+}
+
+.addons-inputs .input-helper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.addons-inputs input[type='checkbox'] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    /* ^^ hides default styles */
+    display: grid;
+    place-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.addons-inputs input[type="checkbox"]::before {
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background-color: hsl(var(--cs-purplish-blue));
+    background-image: url('../../assets//images//icon-checkmark.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+  }
+
+.addons-inputs input[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }
+
+.addons-inputs .input-helper label::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+    inset: 0;
+    cursor: pointer;
+}
+
+.addons-label {
+    margin-left: .5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.addons-label span:nth-of-type(1) {
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.addons-label span:nth-of-type(2) {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.cost-info {
+    font-size: 1.3rem;
+    margin-left: auto;
+}

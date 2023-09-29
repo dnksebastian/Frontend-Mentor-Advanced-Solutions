@@ -1,7 +1,7 @@
 import './StepControls.css';
 
 
-const StepControls = ({ formStep, handleStepChange }) => {
+const StepControls = ({ formStep, handleStepChange, stepRef }) => {
 
     const goNextStep = () => {
         if(formStep < 4) {
@@ -32,6 +32,7 @@ const StepControls = ({ formStep, handleStepChange }) => {
             type='submit'
             // onClick={() => goNextStep()}
             onClick={() => {
+                stepRef.current.requestSubmit();
                 goNextStep()
             }}
             >Next Step</button>
