@@ -14,17 +14,18 @@ import StepControls from '../StepControls/StepControls'
 
 
 const PlansStep = ({formStep, handleStepChange}) => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, watch } = useForm();
     const [ formData, dispatchFormData ] = useContext(FormContext)
 
     const plansStepRef = useRef()
+
+    const watchBilling = watch('isYearly')
 
     const onSubmitStep = (data) => {
         console.log('step 2 submitted');
         console.log(data);
         dispatchFormData({...formData, ...data})
     };
-
 
     return (
         <form
@@ -39,34 +40,31 @@ const PlansStep = ({formStep, handleStepChange}) => {
                 </div>
                 <div className="inputs-wrap plans-inputs">
                     <div className='plan-input-helper'>
-                        <label htmlFor="arcade">
-                            <div className="icon-wrap">
-                                <img src={ArcadeIcon} alt="Joystick on orange background" className="plan-icon" />
-                            </div>
-                            <div className="plan-label-helper">
-                                <p>Arcade</p>
-                                <p>$9/mo</p>
-                            </div>
-                        </label>
                         <input
                         className='plan-radio-input'
                         type="radio"
                         name='plan-option'
                         id='arcade'
                         value='arcade'
+                        defaultChecked
                         {...register('selectedPlan')}
                         />
-                    </div>
-                    <div className='plan-input-helper'>
-                        <label htmlFor="advanced">
-                        <div className="icon-wrap">
-                                <img src={AdvancedIcon} alt="Gaming pad on red background" className="plan-icon" />
+                        <label htmlFor="arcade">
+                            <div className="icon-wrap">
+                                <img src={ArcadeIcon} alt="Joystick on orange background" className="plan-icon" />
                             </div>
                             <div className="plan-label-helper">
-                                <p>Advanced</p>
-                                <p>$12/mo</p>
+                                <p>Arcade</p>
+                                <p>
+                                    {watchBilling ? '$90/yr' : '$9/mo'}
+                                </p>
+                                <p
+                                className={`billing-bonus-info ${watchBilling ? 'show-bonus' : ''}`}
+                                >2 months free</p>
                             </div>
                         </label>
+                    </div>
+                    <div className='plan-input-helper'>
                         <input
                         className='plan-radio-input'
                         type="radio"
@@ -75,17 +73,22 @@ const PlansStep = ({formStep, handleStepChange}) => {
                         value='advanced'
                         {...register('selectedPlan')}
                         />
-                    </div>
-                    <div className='plan-input-helper'>
-                        <label htmlFor="pro">
+                        <label htmlFor="advanced">
                         <div className="icon-wrap">
-                                <img src={ProIcon} alt="Gaming pad on purple background" className="plan-icon" />
+                                <img src={AdvancedIcon} alt="Gaming pad on red background" className="plan-icon" />
                             </div>
                             <div className="plan-label-helper">
-                                <p>Pro</p>
-                                <p>$15/mo</p>
+                                <p>Advanced</p>
+                                <p>
+                                    {watchBilling ? '$120/yr' : '$12/mo'}
+                                </p>
+                                <p
+                                className={`billing-bonus-info ${watchBilling ? 'show-bonus' : ''}`}
+                                >2 months free</p>
                             </div>
                         </label>
+                    </div>
+                    <div className='plan-input-helper'>
                         <input
                         className='plan-radio-input'
                         type="radio"
@@ -94,12 +97,28 @@ const PlansStep = ({formStep, handleStepChange}) => {
                         value='pro'
                         {...register('selectedPlan')}
                         />
+                        <label htmlFor="pro">
+                        <div className="icon-wrap">
+                                <img src={ProIcon} alt="Gaming pad on purple background" className="plan-icon" />
+                            </div>
+                            <div className="plan-label-helper">
+                                <p>Pro</p>
+                                <p>
+                                    {watchBilling ? '$150/yr' : '$15/mo'}
+                                </p>
+                                <p
+                                className={`billing-bonus-info ${watchBilling ? 'show-bonus' : ''}`}
+                                >2 months free</p>
+                            </div>
+                        </label>
                     </div>
                     <div className="input-helper checkbox-helper">
 
                         <label className='billing-switch'>
                             <span className='sr-only'>Billing option toggle</span>
-                            <span className='billing-option-name'>Monthly</span>
+                            <span
+                            className={`billing-option-name ${watchBilling ? '' : 'billing-selected'}`}
+                            >Monthly</span>
                             <div className="switch-helper">
                                 <input
                                 className='billing-checkbox'
@@ -109,7 +128,9 @@ const PlansStep = ({formStep, handleStepChange}) => {
                                 />
                                 <span className="slider"></span>
                             </div>
-                            <span className='billing-option-name'>Yearly</span>
+                            <span
+                            className={`billing-option-name ${watchBilling ? 'billing-selected' : ''}`}
+                            >Yearly</span>
                         </label>
                     </div>
 

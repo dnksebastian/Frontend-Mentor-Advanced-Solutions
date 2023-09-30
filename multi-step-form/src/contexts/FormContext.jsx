@@ -8,7 +8,7 @@ export const FormContextProvider = (props) => {
     firstName: '',
     email: '',
     phone: '',
-    selectedPlan: '',
+    selectedPlan: 'arcade',
     isYearly: false,
     addons: [],
 });
@@ -17,7 +17,7 @@ const [ formLocalStorage, setFormLocalStorage ] = useLocalStorage("formStorage",
     firstName: '',
     email: '',
     phone: '',
-    selectedPlan: '',
+    selectedPlan: 'arcade',
     isYearly: false,
     addons: [],
 });

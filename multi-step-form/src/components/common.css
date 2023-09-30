@@ -1,10 +1,10 @@
-.step-form-wrap {
+.step-form-wrap, .success-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    background-color: rgba(255, 192, 203, 0.57);
+    /* background-color: rgba(255, 192, 203, 0.57); */
 }
 
 .step-helper-wrap {
@@ -12,13 +12,13 @@
     flex-direction: column;
     gap: 2rem;
     padding: 3rem 2.5rem 3rem 2.5rem;
-    margin-top: 1.2rem;
+    margin-top: 1.3rem;
     margin-bottom: 3rem;
     background-color: hsl(var(--cs-white));
-    width: 93%;
+    width: 91%;
     min-height: 68%;
     border-radius: 1rem;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 .step-desc {
@@ -29,11 +29,13 @@
 
 .step-desc h1 {
     font-size: 2.4rem;
+    color: hsl(var(--cs-marine-blue));
 }
 
 .step-desc p {
     font-size: 1.6rem;
     line-height: 1.5;
+    color: hsl(var(--cs-cool-gray));
 }
 
 .inputs-wrap {
@@ -56,5 +58,12 @@
 .input-helper input[type='text'] {
     font-size: 1.6rem;
     font-weight: 500;
-    padding: .8rem 1.5rem;
+    color: hsl(var(--cs-marine-blue));
+    padding: .9rem 1.5rem;
+    border: 1px solid hsl(var(--cs-light-gray));
+    border-radius: .5rem;
+}
+
+.input-helper input[type="text"]::placeholder {
+    color: hsl(var(--cs-cool-gray));
 }

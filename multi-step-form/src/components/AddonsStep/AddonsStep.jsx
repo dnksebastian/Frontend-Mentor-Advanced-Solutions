@@ -15,6 +15,9 @@ const AddonsStep = ({ formStep, handleStepChange }) => {
 
     const addonsStepRef = useRef()
 
+    const billing = formData.isYearly
+    console.log(billing);
+
     const onSubmitStep = (data) => {
         console.log('step 3 submitted');
         console.log(data);
@@ -48,7 +51,9 @@ const AddonsStep = ({ formStep, handleStepChange }) => {
                             <span>Online service</span>
                             <span>Access to multiplayer games</span>
                         </label>
-                        <p className='cost-info'>+$1/mo</p>
+                        <p className='cost-info'>
+                            {formData.isYearly ? "+$10/yr" : "+$1/mo"}
+                        </p>
                     </div>
                     <div className="input-helper">
                         <input
@@ -64,7 +69,9 @@ const AddonsStep = ({ formStep, handleStepChange }) => {
                             <span>Larger storage</span>
                             <span>Extra 1TB of cloud save</span>
                         </label>
-                        <p className='cost-info'>+$2/mo</p>
+                        <p className='cost-info'>
+                            {formData.isYearly ? "+$20/yr" : "+$2/mo"}
+                        </p>
                     </div>
                     <div className="input-helper">
                         <input
@@ -80,7 +87,9 @@ const AddonsStep = ({ formStep, handleStepChange }) => {
                             <span>Customizable Profile</span>
                             <span>Custom theme on your profile</span>
                         </label>
-                        <p className='cost-info'>+$2/mo</p>
+                        <p className='cost-info'>
+                            {formData.isYearly ? "+$20/yr" : "+$2/mo"}
+                        </p>
                     </div>
                 </div>
             </div>

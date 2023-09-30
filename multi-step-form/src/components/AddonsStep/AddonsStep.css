@@ -1,5 +1,5 @@
 .addons-inputs {
-    background-color: rgba(0, 128, 128, 0.4);
+    /* background-color: rgba(0, 128, 128, 0.4); */
     gap: 1.1rem;
 }
 
@@ -10,9 +10,9 @@
     align-items: center;
     gap: 1rem;
     padding: 1.5rem;
-    border: 1px solid black;
+    border: 1px solid transparent;
     border-radius: 1rem;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .addons-inputs input[type='checkbox'] {
@@ -24,7 +24,7 @@
     place-content: center;
     width: 2rem;
     height: 2rem;
-    border: 1px solid black;
+    border: 1px solid hsl(var(--cs-light-gray));
     border-radius: 0.5rem;
     overflow: hidden;
 }
@@ -53,6 +53,13 @@
     content: "";
     inset: 0;
     cursor: pointer;
+    border: 1px solid hsl(var(--cs-light-gray));
+    border-radius: 1rem;
+}
+
+.addons-inputs input[type="checkbox"]:checked + label::after {
+    border-color: hsl(var(--cs-purplish-blue));
+    background-color: hsl(var(--cs-purplish-blue), 5%);
 }
 
 .addons-label {
@@ -64,14 +71,18 @@
 .addons-label span:nth-of-type(1) {
     font-weight: 700;
     font-size: 1.4rem;
+    color: hsl(var(--cs-marine-blue));
 }
 
 .addons-label span:nth-of-type(2) {
     font-weight: 500;
     font-size: 1.2rem;
+    color: hsl(var(--cs-cool-gray));
 }
 
 .cost-info {
     font-size: 1.3rem;
     margin-left: auto;
+    font-weight: 500;
+    color: hsl(var(--cs-purplish-blue));
 }

@@ -1,14 +1,4 @@
-/* .personal-info-wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    background-color: rgba(255, 192, 203, 0.57);
-} */
-
-
-.step-helper-wrap {
+/* .helper-info {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -18,5 +8,10 @@
     width: 93%;
     min-height: 68%;
     border-radius: 1rem;
-    border: 1px solid green;
+} */
+
+.personal-info-inputs label {
+    color: hsl(var(--cs-marine-blue));
 }
+
+

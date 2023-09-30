@@ -32,3 +32,8 @@
 .btn-next {
     margin-left: auto;
 }
+
+.btn-confirm {
+    background-color: hsl(var(--cs-purplish-blue));
+    color: hsl(var(--cs-white));
+}

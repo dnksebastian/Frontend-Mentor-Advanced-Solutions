@@ -10,19 +10,24 @@
 .plan-input-helper {
     display: flex;
     align-items: center;
-    background-color: orange;
+    /* background-color: orange; */
 }
 
 .plan-input-helper label {
     cursor: pointer;
     padding: 1.8rem 1.7rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     border-radius: 1rem;
-    border: 1px solid black;
+    border: 1px solid hsl(var(--cs-light-gray));
     gap: 1.5rem;
-    background-color: rgba(0, 0, 255, 0.592);
+    /* background-color: rgba(0, 0, 255, 0.592); */
+}
+
+.plan-radio-input:checked + label {
+    border-color: hsl(var(--cs-purplish-blue));
+    background-color: hsla(var(--cs-purplish-blue), 3%);
 }
 
 .plan-label-helper {
@@ -35,11 +40,23 @@
 
 .plan-label-helper p:nth-of-type(1) {
     font-weight: 700;
+    color: hsl(var(--cs-marine-blue));
 }
 
 .plan-label-helper p:nth-of-type(2) {
     font-size: 1.4rem;
     font-weight: 500;
+    color: hsl(var(--cs-cool-gray));
+}
+
+.billing-bonus-info {
+    display: none;
+    font-size: 1.2rem;
+    color: hsl(var(--cs-marine-blue));
+}
+
+.show-bonus {
+    display: block;
 }
 
 .checkbox-helper {
@@ -57,12 +74,17 @@
     display: flex;
     gap: 2.2rem;
     align-items: center;
-    background-color: orange;
+    /* background-color: orange; */
 }
 
 .billing-option-name {
     font-size: 1.5rem;
     font-weight: 500;
+    color: hsl(var(--cs-cool-gray));
+}
+
+.billing-selected {
+    color: hsl(var(--cs-marine-blue));
 }
 
 .switch-helper {
