@@ -14,8 +14,6 @@ import SuccessStep from '../SuccessStep/SuccessStep'
 const FormContainer = () => {
     const [formStep, setFormStep] = useState(0);
 
-    console.log('rendered');
-
     const handleStepChange = (step) => {
         setFormStep(step)
     }

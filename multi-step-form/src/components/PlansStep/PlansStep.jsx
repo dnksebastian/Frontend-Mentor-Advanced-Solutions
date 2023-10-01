@@ -14,8 +14,11 @@ import StepControls from '../StepControls/StepControls'
 
 
 const PlansStep = ({formStep, handleStepChange}) => {
-    const { register, handleSubmit, watch } = useForm();
     const [ formData, dispatchFormData ] = useContext(FormContext)
+    const { register, handleSubmit, watch } = useForm({defaultValues: {
+        selectedPlan: formData.selectedPlan,
+        isYearly: formData.isYearly
+    }});
 
     const plansStepRef = useRef()
 
@@ -23,7 +26,6 @@ const PlansStep = ({formStep, handleStepChange}) => {
 
     const onSubmitStep = (data) => {
         console.log('step 2 submitted');
-        console.log(data);
         dispatchFormData({...formData, ...data})
     };
 
@@ -46,7 +48,7 @@ const PlansStep = ({formStep, handleStepChange}) => {
                         name='plan-option'
                         id='arcade'
                         value='arcade'
-                        defaultChecked
+                        // defaultChecked={formData.selectedPlan === 'arcade'}
                         {...register('selectedPlan')}
                         />
                         <label htmlFor="arcade">
@@ -71,6 +73,7 @@ const PlansStep = ({formStep, handleStepChange}) => {
                         name='plan-option'
                         id='advanced'
                         value='advanced'
+                        // defaultChecked={formData.selectedPlan === 'advanced'}
                         {...register('selectedPlan')}
                         />
                         <label htmlFor="advanced">
@@ -95,6 +98,7 @@ const PlansStep = ({formStep, handleStepChange}) => {
                         name='plan-option'
                         id='pro'
                         value='pro'
+                        // defaultChecked={formData.selectedPlan === 'pro'}
                         {...register('selectedPlan')}
                         />
                         <label htmlFor="pro">
@@ -124,6 +128,7 @@ const PlansStep = ({formStep, handleStepChange}) => {
                                 className='billing-checkbox'
                                 type="checkbox"
                                 id='billing-option'
+                                // defaultChecked={formData.isYearly}
                                 {...register('isYearly')}
                                 />
                                 <span className="slider"></span>

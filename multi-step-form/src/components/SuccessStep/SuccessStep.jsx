@@ -2,10 +2,15 @@ import './SuccessStep.css'
 import '../common.css'
 
 import ThankYouIcon from '../../assets/images/icon-thank-you.svg'
+import { useEffect } from 'react';
 
-const SuccessStep = ({ formStep, handleStepChange }) => {
+const SuccessStep = ({ handleStepChange }) => {
 
-    console.log(formStep, handleStepChange);
+    useEffect(() => {
+        setTimeout(() => {
+            handleStepChange(0)
+        }, 3500)
+    }, [handleStepChange])
 
     return (
         <div className='success-wrapper'>

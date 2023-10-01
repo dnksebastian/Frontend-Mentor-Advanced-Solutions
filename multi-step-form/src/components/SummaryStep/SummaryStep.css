@@ -32,6 +32,14 @@
     color: hsl(var(--cs-marine-blue));
 }
 
+.summary-chosen-plan::first-letter {
+    text-transform: capitalize;
+}
+
+.chosen-billing-option {
+    margin-left: .1rem;
+}
+
 .btn-summary-change {
     background-color: transparent;
     border: none;

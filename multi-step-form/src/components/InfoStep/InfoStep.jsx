@@ -9,14 +9,17 @@ import FormContext from '../../contexts/FormContext';
 import StepControls from '../StepControls/StepControls';
 
 const InfoStep = ({ formStep, handleStepChange }) => {
-    const { register, handleSubmit } = useForm();
     const [ formData, dispatchFormData ] = useContext(FormContext)
+    const { register, handleSubmit } = useForm({defaultValues:
+        {firstName: formData.firstName,
+         email: formData.email,
+         phone: formData.phone
+    }});
 
     const infoStepRef = useRef()
 
     const onSubmitStep = (data) => {
         console.log('step 1 submitted');
-        console.log(data);
         dispatchFormData({...formData, ...data})
     }
 
@@ -41,7 +44,7 @@ const InfoStep = ({ formStep, handleStepChange }) => {
                     name="first-name"
                     placeholder='e.g. Stephen King'
                     {...register('firstName')}
-                    defaultValue={formData.firstName}
+                    // defaultValue={formData.firstName}
                     />
                 </div> 
                 <div className="input-helper">
@@ -52,7 +55,7 @@ const InfoStep = ({ formStep, handleStepChange }) => {
                     name='email'
                     placeholder='e.g. stephenking@lorem.com'
                     {...register('email')}
-                    defaultValue={formData.email}
+                    // defaultValue={formData.email}
                     />
                 </div>
                 <div className="input-helper">
@@ -63,7 +66,7 @@ const InfoStep = ({ formStep, handleStepChange }) => {
                     name='phone'
                     placeholder='e.g. +1 234 567 890'
                     {...register('phone')}
-                    defaultValue={formData.phone}
+                    // defaultValue={formData.phone}
                     />
                 </div>
             </div>

@@ -13,6 +13,7 @@ export const FormContextProvider = (props) => {
     addons: [],
 });
 
+
 const [ formLocalStorage, setFormLocalStorage ] = useLocalStorage("formStorage", {
     firstName: '',
     email: '',
@@ -21,8 +22,6 @@ const [ formLocalStorage, setFormLocalStorage ] = useLocalStorage("formStorage",
     isYearly: false,
     addons: [],
 });
-
-console.log('context rendered');
 
 useEffect(() => {
     if(formLocalStorage) {

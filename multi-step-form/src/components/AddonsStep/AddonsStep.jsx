@@ -10,17 +10,15 @@ import FormContext from '../../contexts/FormContext';
 import StepControls from '../StepControls/StepControls'
 
 const AddonsStep = ({ formStep, handleStepChange }) => {
-    const { register, handleSubmit } = useForm();
     const [ formData, dispatchFormData ] = useContext(FormContext)
+    const { register, handleSubmit } = useForm({defaultValues: {
+        addons: formData.addons
+    }});
 
     const addonsStepRef = useRef()
 
-    const billing = formData.isYearly
-    console.log(billing);
-
     const onSubmitStep = (data) => {
         console.log('step 3 submitted');
-        console.log(data);
         dispatchFormData({...formData, ...data})
     }
 
