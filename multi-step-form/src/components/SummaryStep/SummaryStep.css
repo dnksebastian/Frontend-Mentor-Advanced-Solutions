@@ -45,6 +45,12 @@
     border: none;
     text-decoration: underline;
     color: hsl(var(--cs-cool-gray));
+    transition: .3s;
+}
+
+.btn-summary-change:hover,
+.btn-summary-change:focus-visible {
+    color: hsl(var(--cs-purplish-blue));
 }
 
 .summary-plan-price {

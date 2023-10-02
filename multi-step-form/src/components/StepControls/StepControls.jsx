@@ -33,6 +33,7 @@ const StepControls = ({ formStep, handleStepChange, stepRef }) => {
             // onClick={() => goNextStep()}
             onClick={() => {
                 stepRef.current.requestSubmit();
+
                 goNextStep()
             }}
             >Next Step</button>

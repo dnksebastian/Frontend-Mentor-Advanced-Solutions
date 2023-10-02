@@ -55,6 +55,11 @@
     cursor: pointer;
     border: 1px solid hsl(var(--cs-light-gray));
     border-radius: 1rem;
+    transition: .3s;
+}
+
+.addons-inputs label:hover:after {
+    border-color: hsl(var(--cs-purplish-blue));
 }
 
 .addons-inputs input[type="checkbox"]:checked + label::after {

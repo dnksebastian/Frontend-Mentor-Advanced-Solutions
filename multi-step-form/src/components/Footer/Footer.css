@@ -3,6 +3,7 @@ footer {
     align-items: center;
     justify-content: center;
     color: hsl(var(--cs-marine-blue));
+    background-color: hsl(var(--cs-white));
 }
 
 footer a {

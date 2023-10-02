@@ -1,4 +1,5 @@
-import { createContext, useEffect, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
+
 import useLocalStorage from "use-local-storage";
 
 const FormContext = createContext();
@@ -8,7 +9,7 @@ export const FormContextProvider = (props) => {
     firstName: '',
     email: '',
     phone: '',
-    selectedPlan: 'arcade',
+    selectedPlan: '',
     isYearly: false,
     addons: [],
 });
@@ -18,7 +19,7 @@ const [ formLocalStorage, setFormLocalStorage ] = useLocalStorage("formStorage",
     firstName: '',
     email: '',
     phone: '',
-    selectedPlan: 'arcade',
+    selectedPlan: '',
     isYearly: false,
     addons: [],
 });

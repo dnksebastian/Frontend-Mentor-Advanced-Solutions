@@ -1,25 +1,17 @@
 import './SummaryStep.css'
 import '../common.css'
 
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useForm } from "react-hook-form";
 
 import FormContext from '../../contexts/FormContext';
 
-import StepControls from '../StepControls/StepControls';
-
 const SummaryStep = ({ formStep, handleStepChange }) => {
     const [ formData, dispatchFormData ] = useContext(FormContext)
-    const { handleSubmit, reset, isSubmitSuccessful } = useForm({defaultValues: {...formData}});
+    const { handleSubmit, formState: { isValid } } = useForm({defaultValues: {...formData}});
     const [totalFinalPrice, setTotalFinalPrice] = useState(0);
 
-    const summaryStepRef = useRef()
 
-    useEffect(() => {
-        reset()
-        console.log('form submitted');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isSubmitSuccessful])
 
     useEffect(() => {
         const allAddonPricesEls = Array.from(
@@ -92,17 +84,29 @@ const SummaryStep = ({ formStep, handleStepChange }) => {
     }
 
     const onSubmitStep = () => {
-        console.log('step 4 submitted');
-        console.log(formData);
-        dispatchFormData({...formData})
-        handleStepChange(4)
+        if(isValid) {
+            if(formStep === 3) {
+                console.log('step 4 submitted');
+                console.log(formData);
+                dispatchFormData({...formData})
+                dispatchFormData({
+                    firstName: '',
+                    email: '',
+                    phone: '',
+                    selectedPlan: '',
+                    isYearly: false,
+                    addons: [],
+                })
+                handleStepChange(4)
+            }
+        }
     }
 
     return (
         <form
         className='summary-step-wrap step-form-wrap'
         onSubmit={handleSubmit(onSubmitStep)}
-        ref={summaryStepRef}>
+        >
             <div className="step-helper-wrap helper-summary">
                 <div className="step-desc step4-desc">
                     <h1>Finishing up</h1>
@@ -162,11 +166,24 @@ const SummaryStep = ({ formStep, handleStepChange }) => {
                         </div>
                 </div>
             </div>
-            <StepControls
-            formStep={formStep}
-            handleStepChange={handleStepChange}
-            stepRef={summaryStepRef}
-            />
+
+            <div className='step-controls-wrapper'>
+                <button
+                className='btn-stepchange btn-light btn-back'
+                type='button'
+                onClick={() => {
+                    if(formStep === 3) {
+                        handleStepChange(2)
+                    }
+                }}
+                >Go Back</button>
+                <button
+                className='btn-stepchange btn-dark btn-confirm'
+                id='btn-confirm'
+                >Confirm</button>
+            </div>
+
+
         </form>
     );
 };

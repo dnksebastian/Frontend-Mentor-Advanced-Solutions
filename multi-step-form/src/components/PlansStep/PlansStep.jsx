@@ -5,35 +5,36 @@ import ArcadeIcon from '../../assets/images/icon-arcade.svg'
 import AdvancedIcon from '../../assets/images/icon-advanced.svg'
 import ProIcon from '../../assets/images/icon-pro.svg'
 
-import { useContext, useRef } from 'react'
+import { useContext } from 'react'
 import { useForm } from "react-hook-form";
 
 import FormContext from '../../contexts/FormContext';
 
-import StepControls from '../StepControls/StepControls'
-
 
 const PlansStep = ({formStep, handleStepChange}) => {
     const [ formData, dispatchFormData ] = useContext(FormContext)
-    const { register, handleSubmit, watch } = useForm({defaultValues: {
+    const { register, handleSubmit, watch, formState: {errors, isValid} } = useForm({defaultValues: {
         selectedPlan: formData.selectedPlan,
         isYearly: formData.isYearly
     }});
 
-    const plansStepRef = useRef()
-
     const watchBilling = watch('isYearly')
 
     const onSubmitStep = (data) => {
-        console.log('step 2 submitted');
-        dispatchFormData({...formData, ...data})
+
+        if(isValid) {
+            if(formStep === 1) {
+                console.log('step 2 submitted');
+                dispatchFormData({...formData, ...data})
+                handleStepChange(2)
+            }
+        }
     };
 
     return (
         <form
         className='plans-step-wrap step-form-wrap'
         onSubmit={handleSubmit(onSubmitStep)}
-        ref={plansStepRef}
         >
             <div className="step-helper-wrap helper-plans">
                 <div className="step-desc step2-desc">
@@ -41,6 +42,11 @@ const PlansStep = ({formStep, handleStepChange}) => {
                     <p>You have the option of monthly or yearly billing.</p>
                 </div>
                 <div className="inputs-wrap plans-inputs">
+                    <fieldset
+                    className='plans-fieldset'
+                        aria-invalid={errors?.selectedPlan? 'true' : 'false'}
+                    >
+                    <legend className='sr-only'>Choose plan option</legend>
                     <div className='plan-input-helper'>
                         <input
                         className='plan-radio-input'
@@ -48,8 +54,9 @@ const PlansStep = ({formStep, handleStepChange}) => {
                         name='plan-option'
                         id='arcade'
                         value='arcade'
-                        // defaultChecked={formData.selectedPlan === 'arcade'}
-                        {...register('selectedPlan')}
+                        defaultChecked={formData.selectedPlan === 'arcade'}
+                        // aria-invalid={errors?.selectedPlan? 'true' : 'false'}
+                        {...register('selectedPlan', {required: 'Please choose a plan option'})}
                         />
                         <label htmlFor="arcade">
                             <div className="icon-wrap">
@@ -73,8 +80,9 @@ const PlansStep = ({formStep, handleStepChange}) => {
                         name='plan-option'
                         id='advanced'
                         value='advanced'
-                        // defaultChecked={formData.selectedPlan === 'advanced'}
-                        {...register('selectedPlan')}
+                        defaultChecked={formData.selectedPlan === 'advanced'}
+                        // {...register('selectedPlan')}
+                        {...register('selectedPlan', {required: 'Please choose a plan option'})}
                         />
                         <label htmlFor="advanced">
                         <div className="icon-wrap">
@@ -98,8 +106,9 @@ const PlansStep = ({formStep, handleStepChange}) => {
                         name='plan-option'
                         id='pro'
                         value='pro'
-                        // defaultChecked={formData.selectedPlan === 'pro'}
-                        {...register('selectedPlan')}
+                        defaultChecked={formData.selectedPlan === 'pro'}
+                        // {...register('selectedPlan')}
+                        {...register('selectedPlan', {required: 'Please choose a plan option'})}
                         />
                         <label htmlFor="pro">
                         <div className="icon-wrap">
@@ -116,6 +125,8 @@ const PlansStep = ({formStep, handleStepChange}) => {
                             </div>
                         </label>
                     </div>
+                    {errors?.selectedPlan && <span className='input-error-msg fieldset-error'>{errors?.selectedPlan?.message}</span>}
+                    </fieldset>
                     <div className="input-helper checkbox-helper">
 
                         <label className='billing-switch'>
@@ -141,11 +152,27 @@ const PlansStep = ({formStep, handleStepChange}) => {
 
                 </div>
             </div>
-            <StepControls
+
+            <div className="step-controls-wrapper">
+                <button
+                className='btn-stepchange btn-light btn-back'
+                type='button'
+                onClick={() => {
+                    if(formStep === 1) {
+                        handleStepChange(0)
+                    }
+                }}
+                >Go Back</button>
+                <button
+                className='btn-stepchange btn-dark btn-next'
+                >Next Step</button>
+            </div>
+
+            {/* <StepControls
             formStep={formStep}
             handleStepChange={handleStepChange}
             stepRef={plansStepRef}
-            />
+            /> */}
         </form>
     );
 };

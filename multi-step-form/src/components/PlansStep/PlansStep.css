@@ -3,6 +3,17 @@
     gap: 1.1rem;
 }
 
+.plans-fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    padding: .3rem;
+    border: none;
+    margin-bottom: 2rem;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+}
+
 .plan-radio-input {
     display: none;
 }
@@ -22,7 +33,12 @@
     border-radius: 1rem;
     border: 1px solid hsl(var(--cs-light-gray));
     gap: 1.5rem;
+    transition: .3s;
     /* background-color: rgba(0, 0, 255, 0.592); */
+}
+
+.plan-input-helper label:hover {
+    border-color: hsl(var(--cs-purplish-blue));
 }
 
 .plan-radio-input:checked + label {

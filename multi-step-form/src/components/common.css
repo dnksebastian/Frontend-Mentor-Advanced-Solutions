@@ -55,15 +55,102 @@
     font-weight: 500;
 }
 
-.input-helper input[type='text'] {
+.input-helper input[type='text'],
+.input-helper input[type='email'],
+.input-helper input[type='tel'] {
     font-size: 1.6rem;
     font-weight: 500;
     color: hsl(var(--cs-marine-blue));
     padding: .9rem 1.5rem;
     border: 1px solid hsl(var(--cs-light-gray));
     border-radius: .5rem;
+    cursor: pointer;
 }
 
-.input-helper input[type="text"]::placeholder {
+.input-helper input[type="text"]::placeholder,
+.input-helper input[type="email"]::placeholder,
+.input-helper input[type="tel"]::placeholder {
     color: hsl(var(--cs-cool-gray));
+}
+
+/* Errors styles */
+
+.input-error-msg {
+    font-weight: 500;
+    color: hsl(var(--cs-strawberry-red));
+}
+
+.fieldset-error {
+    font-weight: 700;
+    margin-left: auto;
+}
+
+.input-helper input[type='text'][aria-invalid="true"],
+.input-helper input[type='email'][aria-invalid="true"],
+.input-helper input[type='tel'][aria-invalid="true"] {
+    border-color: hsl(var(--cs-strawberry-red));
+}
+
+.plans-fieldset[aria-invalid="true"] {
+    border-color: hsl(var(--cs-strawberry-red));
+}
+
+/* Hover & active styles */
+
+.input-helper input[type="text"]:hover,
+.input-helper input[type="email"]:hover,
+.input-helper input[type="tel"]:hover {
+    border-color: hsl(var(--cs-purplish-blue));
+}
+
+.btn-dark:hover,
+.btn-confirm:hover {
+    filter: brightness(130%);
+}
+
+.btn-light:hover {
+    color: hsl(var(--cs-marine-blue));
+}
+
+
+/* Step controls styles */
+
+.step-controls-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem 0rem 1.5rem;
+    /* grid-row: 4/5; */
+    /* grid-column: 1/2; */
+    /* justify-self: flex-end; */
+    width: 100%;
+    background-color: hsl(var(--cs-white));
+}
+
+.btn-stepchange {
+    padding: 1rem 1rem;
+    min-width: 9.5rem;
+    font-size: 1.45rem;
+    font-weight: 500;
+    border-radius: .5rem;
+    border: none;
+}
+
+.btn-dark {
+    background-color: hsl(var(--cs-marine-blue));
+    color: hsl(var(--cs-white));
+}
+
+.btn-light {
+    background-color: transparent;
+    color: hsl(var(--cs-cool-gray));
+}
+
+.btn-next {
+    margin-left: auto;
+}
+
+.btn-confirm {
+    background-color: hsl(var(--cs-purplish-blue));
+    color: hsl(var(--cs-white));
 }

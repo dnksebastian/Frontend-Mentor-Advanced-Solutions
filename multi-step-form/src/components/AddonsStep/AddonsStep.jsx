@@ -7,19 +7,22 @@ import { useForm } from "react-hook-form";
 import FormContext from '../../contexts/FormContext';
 
 
-import StepControls from '../StepControls/StepControls'
-
 const AddonsStep = ({ formStep, handleStepChange }) => {
     const [ formData, dispatchFormData ] = useContext(FormContext)
-    const { register, handleSubmit } = useForm({defaultValues: {
+    const { register, handleSubmit, formState: {isValid} } = useForm({defaultValues: {
         addons: formData.addons
     }});
 
     const addonsStepRef = useRef()
 
     const onSubmitStep = (data) => {
-        console.log('step 3 submitted');
-        dispatchFormData({...formData, ...data})
+        if(isValid) {
+            if(formStep === 2) {
+                console.log('step 3 submitted');
+                dispatchFormData({...formData, ...data})
+                handleStepChange(3)
+            }
+        }
     }
 
 
@@ -91,11 +94,21 @@ const AddonsStep = ({ formStep, handleStepChange }) => {
                     </div>
                 </div>
             </div>
-            <StepControls
-            formStep={formStep}
-            handleStepChange={handleStepChange}
-            stepRef={addonsStepRef}
-            />
+            <div className='step-controls-wrapper'>
+                <button
+                className='btn-stepchange btn-light btn-back'
+                type='button'
+                onClick={() => {
+                    if(formStep === 2) {
+                        handleStepChange(1)
+                    }
+                }}
+                >Go Back</button>
+                <button
+                className='btn-stepchange btn-dark btn-next'
+                >Next Step</button>
+            </div>
+    
         </form>
     );
 };
