@@ -28,16 +28,8 @@
     text-align: center;
 }
 
-.control-desc {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -55%);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: hsl(var(--cs-white));
-    z-index: 10;
+.stepper-inner-helper {
+    display: none;
 }
 
 .control-input {
@@ -49,11 +41,31 @@
     display: grid;
     place-content: center;
     font: inherit;
+    position: relative;
     color: hsl(var(--cs-white));
     width: 3.5rem;
     height: 3.5rem;
     border: 1px solid hsl(var(--cs-white));
     border-radius: 50%;
+}
+
+.control-input::after {
+    content: attr(data-step);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: hsl(var(--cs-white));
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    z-index: 10;
+}
+
+.control-input:checked::after {
+    color: hsl(var(--cs-marine-blue))
 }
 
 .control-input::before {
@@ -69,14 +81,5 @@
 
 .control-input:checked::before {
     transform: scale(1);
-  }
-
-.control-input:checked + .control-desc {
-    color: hsl(var(--cs-marine-blue))
-}
-
-.control-input:focus {
-    outline: none;
-    box-shadow: 0rem .05rem .1rem .1rem hsl(var(--cs-white));
   }
   

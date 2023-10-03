@@ -154,3 +154,22 @@
     background-color: hsl(var(--cs-purplish-blue));
     color: hsl(var(--cs-white));
 }
+
+@media screen and (min-width: 700px) and (max-width: 999px) {
+    .step-form-wrap {
+        justify-content: flex-start;
+    }
+
+    .step-helper-wrap {
+        margin-bottom: unset;
+        border-radius: 1rem 1rem 0rem 0rem;
+    }
+
+    .step-controls-wrapper {
+        width: 91%;
+        max-width: 70rem;
+        border-radius: 0rem 0rem 1rem 1rem;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+}
