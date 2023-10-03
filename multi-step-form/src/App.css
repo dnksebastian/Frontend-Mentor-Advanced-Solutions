@@ -3,5 +3,5 @@
     position: relative;
     grid-template-rows: 1fr 2rem;
     background-color: hsl(var(--cs-magnolia));
-    margin-bottom: 6rem;
+    margin-bottom: 7rem;
   }
