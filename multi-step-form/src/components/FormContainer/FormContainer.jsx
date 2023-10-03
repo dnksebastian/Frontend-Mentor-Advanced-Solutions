@@ -12,7 +12,7 @@ import SummaryStep from '../SummaryStep/SummaryStep'
 import SuccessStep from '../SuccessStep/SuccessStep'
 
 const FormContainer = () => {
-    const [formStep, setFormStep] = useState(4);
+    const [formStep, setFormStep] = useState(0);
 
     const handleStepChange = (step) => {
         setFormStep(step)
