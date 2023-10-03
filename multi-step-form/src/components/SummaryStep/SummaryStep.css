@@ -97,3 +97,37 @@
     font-weight: 700;
     color: hsl(var(--cs-purplish-blue));
 }
+
+@media screen and (min-width: 1000px) {
+    .summary-inputs-outer {
+        padding: 2.2rem 2.5rem;
+    }
+
+    .summary-plan-helper {
+        padding-bottom: 2.5rem;
+    }
+
+    .summary-plan-inner {
+        gap: .5rem;
+    }
+
+    .summary-chosen-plan {
+        font-size: 1.6rem;
+    }
+
+    .summary-plan-price {
+        font-size: 1.6rem;
+    }
+
+    .summary-addons-list {
+        gap: 2rem;
+    }
+
+    .total-display {
+        padding: 2.5rem 2.5rem;
+    }
+
+    .total-price {
+        font-size: 2rem;
+    }
+}

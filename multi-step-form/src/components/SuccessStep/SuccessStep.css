@@ -22,3 +22,21 @@
     font-size: 1.65rem;
     line-height: 1.5;
 }
+
+@media screen and (min-width: 1000px) {
+    .helper-success {
+        margin-top: auto;
+        margin-bottom: auto;
+        padding: 2rem 4.5rem;
+    }
+
+    .success-icon-wrapper {
+        max-width: 8rem;
+        margin-top: unset;
+        margin-bottom: 2rem;
+    }
+
+    .success-wrapper h1 {
+        font-size: 3.2rem;
+    }
+}

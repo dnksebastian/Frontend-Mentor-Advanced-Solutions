@@ -13,6 +13,7 @@ const Sidebar = ({ formStep }) => {
                     id='step1'
                     data-step="1"
                     checked={formStep === 0}
+                    readOnly
                     />
                     <div className="stepper-inner-helper">
                         <span className="step-num">Step 1</span>
@@ -28,6 +29,7 @@ const Sidebar = ({ formStep }) => {
                     id='step2'
                     data-step="2"
                     checked={formStep === 1}
+                    readOnly
                     />
                     <div className="stepper-inner-helper">
                         <span className="step-num">Step 2</span>
@@ -43,6 +45,7 @@ const Sidebar = ({ formStep }) => {
                     id='step3'
                     data-step="3"
                     checked={formStep === 2}
+                    readOnly
                     />
                     <div className="stepper-inner-helper">
                         <span className="step-num">Step 3</span>
@@ -58,6 +61,7 @@ const Sidebar = ({ formStep }) => {
                     id='step4'
                     data-step="4"
                     checked={formStep === 3}
+                    readOnly
                     />
                 <div className="stepper-inner-helper">
                         <span className="step-num">Step 4</span>

@@ -55,7 +55,6 @@ const PlansStep = ({formStep, handleStepChange}) => {
                         id='arcade'
                         value='arcade'
                         defaultChecked={formData.selectedPlan === 'arcade'}
-                        // aria-invalid={errors?.selectedPlan? 'true' : 'false'}
                         {...register('selectedPlan', {required: 'Please choose a plan option'})}
                         />
                         <label htmlFor="arcade">
@@ -81,7 +80,6 @@ const PlansStep = ({formStep, handleStepChange}) => {
                         id='advanced'
                         value='advanced'
                         defaultChecked={formData.selectedPlan === 'advanced'}
-                        // {...register('selectedPlan')}
                         {...register('selectedPlan', {required: 'Please choose a plan option'})}
                         />
                         <label htmlFor="advanced">
@@ -107,7 +105,6 @@ const PlansStep = ({formStep, handleStepChange}) => {
                         id='pro'
                         value='pro'
                         defaultChecked={formData.selectedPlan === 'pro'}
-                        // {...register('selectedPlan')}
                         {...register('selectedPlan', {required: 'Please choose a plan option'})}
                         />
                         <label htmlFor="pro">
@@ -139,7 +136,6 @@ const PlansStep = ({formStep, handleStepChange}) => {
                                 className='billing-checkbox'
                                 type="checkbox"
                                 id='billing-option'
-                                // defaultChecked={formData.isYearly}
                                 {...register('isYearly')}
                                 />
                                 <span className="slider"></span>
@@ -168,11 +164,6 @@ const PlansStep = ({formStep, handleStepChange}) => {
                 >Next Step</button>
             </div>
 
-            {/* <StepControls
-            formStep={formStep}
-            handleStepChange={handleStepChange}
-            stepRef={plansStepRef}
-            /> */}
         </form>
     );
 };

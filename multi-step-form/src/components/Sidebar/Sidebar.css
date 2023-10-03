@@ -18,12 +18,10 @@
     justify-content: space-between;
     min-width: 20rem;
     gap: 1.4rem;
-    /* background-color: teal; */
 }
 
 .control-label-wrap {
     position: relative;
-    /* background-color: pink; */
     display: grid;
     text-align: center;
 }
@@ -83,3 +81,41 @@
     transform: scale(1);
   }
   
+  @media screen and (min-width: 1000px) {
+
+    .sidebar-wrapper {
+        padding: 3rem 2rem;
+        align-items: flex-start;
+        background-image: url(../../assets//images//bg-sidebar-desktop.svg);
+    }
+
+    .controls-helper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    .control-label-wrap {
+        grid-template-columns: 1fr 4fr;
+        text-align: left;
+        gap: 2rem;
+    }
+
+    .stepper-inner-helper {
+        display: flex;
+        flex-direction: column;
+        text-transform: uppercase;
+    }
+
+    .step-num {
+        font-size: 1.1rem;
+        color: hsla(var(--cs-white), 50%);
+    }
+    
+    .step-name {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: hsl(var(--cs-white));
+    }
+
+  }

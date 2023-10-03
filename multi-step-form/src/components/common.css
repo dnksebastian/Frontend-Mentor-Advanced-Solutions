@@ -4,7 +4,6 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    /* background-color: rgba(255, 192, 203, 0.57); */
 }
 
 .step-helper-wrap {
@@ -18,7 +17,6 @@
     width: 91%;
     min-height: 68%;
     border-radius: 1rem;
-    /* border: 1px solid green; */
 }
 
 .step-desc {
@@ -120,9 +118,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.5rem 0rem 1.5rem;
-    /* grid-row: 4/5; */
-    /* grid-column: 1/2; */
-    /* justify-self: flex-end; */
     width: 100%;
     background-color: hsl(var(--cs-white));
 }
@@ -172,4 +167,61 @@
         padding-bottom: 1rem;
         margin-bottom: 1rem;
     }
+}
+
+@media screen and (min-width: 1000px) {
+    
+    .step-helper-wrap {
+        padding: 3rem 5rem;
+        margin-top: 1rem;
+        gap: 3.5rem;
+    }
+
+    .step-desc {
+        gap: 1rem;
+    }
+
+    .step-desc h1 {
+        font-size: 3.2rem;
+    }
+
+    .inputs-wrap {
+        gap: 2.3rem;
+    }
+
+    .input-helper {
+        gap: 1rem;
+        position: relative;
+    }
+
+    .input-helper label {
+        font-size: 1.5rem;
+    }
+    
+    .input-helper input[type='text'],
+    .input-helper input[type='email'],
+    .input-helper input[type='tel'] {
+        padding: 1.2rem 1.5rem;
+    }
+
+    .input-error-msg {
+        position: absolute;
+        bottom: -1.7rem;
+        right: 0;
+        margin-left: auto;
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+
+    .step-controls-wrapper {
+        padding: 1rem max(1.5rem, 13%) 1.7rem max(1.5rem, 13%);
+    }
+
+    .btn-stepchange {
+        min-width: 12.5rem;
+        padding: 1.4rem 1rem;
+        font-size: 1.6rem;
+        border-radius: 1rem;
+    }
+
 }
